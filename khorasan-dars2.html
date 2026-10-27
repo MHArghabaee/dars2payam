@@ -328,7 +328,7 @@ a{color:var(--a1); font-weight:700}
 .figbox{background:#fff;border:2px solid #cfe7d8;border-radius:20px;padding:10px 10px 6px;box-shadow:0 12px 28px rgba(6,78,59,.14);margin:0}
 .figbox img{width:100%;height:auto;border-radius:12px;display:block;cursor:zoom-in}
 .figbox figcaption{text-align:center;font-size:12.5px;color:#527a68;font-weight:700;margin-top:7px;line-height:1.9}
-.figbox.tall img{width:auto;max-width:100%;max-height:54vh;margin:0 auto}
+.figbox.tall img{width:auto;max-width:100%;max-height:50vh;margin:0 auto}
 .figbox.wide img{width:auto;max-width:100%;max-height:44vh;margin:0 auto}
 .figbox.photo img{height:215px;object-fit:cover}
 .card-img{width:100%;height:104px;object-fit:cover;border-radius:12px;margin:4px 0 6px;cursor:zoom-in;border:1.5px solid #d9eadf}
@@ -340,6 +340,49 @@ a{color:var(--a1); font-weight:700}
 #imgZoom img{max-width:96vw;max-height:90vh;border-radius:14px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 #imgZoom .iz-close{position:absolute;top:16px;inset-inline-start:16px;background:#0f766e;color:#fff;font-weight:800;border-radius:99px;padding:9px 20px;font-size:15px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
 @media print{#imgZoom{display:none!important}.geo-bg .ridges,.geo-bg .contours{display:none}}
+
+/* ارائه‌دهندگان + نمایش کامل تصویر + ریسپانسیو */
+.presenters{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,.72);border:1.5px solid #bfe3d2;color:#065f46;font-weight:700;font-size:15px;border-radius:99px;padding:8px 18px;box-shadow:0 8px 20px rgba(6,78,59,.12);width:fit-content;max-width:100%}
+.presenters .ic{color:#0f766e}
+.figbox.photo img{height:auto;width:auto;max-width:100%;max-height:34vh;margin:0 auto;object-fit:contain}
+.card-img{object-fit:contain;background:#fff;height:118px}
+@media (max-width:1024px){
+  .figbox.tall img{max-height:48vh}
+}
+@media (max-width:820px){
+  .slide{padding:10px 10px 92px;align-items:flex-start}
+  .slide-inner{transform:none!important;width:100%;max-height:100%;min-height:0;overflow-y:auto;overflow-x:hidden;justify-content:flex-start;gap:9px;padding:4px 2px 14px;scrollbar-width:thin}
+  .title{font-size:clamp(22px,6.2vw,31px);line-height:1.45}
+  .lead{font-size:15px;line-height:2}
+  .kicker{font-size:12px}
+  .cover-photo img{height:225px}
+  .cover-photo figcaption{font-size:12px;padding:6px 10px}
+  .figbox{padding:8px 8px 4px}
+  .figbox.tall img,.figbox.wide img{max-height:36vh}
+  .figbox.photo img{max-height:28vh}
+  .figbox figcaption{font-size:11.5px}
+  .flow .sep{display:none}
+  .step{flex:1 1 45%;min-width:0;font-size:.82rem}
+  .hbar{gap:8px}.hbar-lbl{flex-basis:112px;font-size:12.5px}.hbar-val{flex-basis:66px;font-size:12.5px}
+  .presenters{font-size:13px;padding:7px 13px}
+  .poem{font-size:16.5px}
+  .quiz-box{padding:14px}
+  .opt{font-size:14.5px}
+  .menu-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  #fragHint{bottom:82px;font-size:.76rem;max-width:92vw;white-space:normal;text-align:center}
+}
+@media (max-width:520px){
+  .step{flex-basis:100%}
+  .chip{font-size:11.5px;padding:5px 10px}
+  .qa-head{font-size:14px}
+  .books{font-size:.74rem}
+  .stat .stat-num{font-size:24px}
+  .verse{font-size:19px}
+#stage{overflow:hidden}
+  .big-quote{font-size:19px}
+}
+
+@media screen{#stage{overflow:hidden}}
 </style>
 </head>
 <body data-dir="fwd">
@@ -434,6 +477,7 @@ a{color:var(--a1); font-weight:700}
         <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-book-open"/></svg> استان‌شناسی خراسان رضوی ـ پایهٔ دهم &nbsp;•&nbsp; فصل جغرافیای طبیعی استان</span>
         <h1 class="title rise" style="--d:.12s; margin-top:14px">درس دوم:<br><span class="grad-text">ناهمواری‌های استان</span></h1>
         <p class="lead rise" style="--d:.24s">خراسان رضوی روی کمربند چین‌خوردهٔ <b>آلپ ـ هیمالیا</b> نشسته است؛ سرزمینی از رشته‌کوه‌های بلند شمال تا کوه‌های کم‌ارتفاع جنوب، با دشت‌های حاصلخیز و گسل‌های فعال. در این درس شکل‌گیری و نقش این ناهمواری‌ها را می‌شناسیم.</p>
+        <p class="presenters rise" style="--d:.3s"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> ارائه‌دهندگان: <b>محمدحسین ارقبائی</b>، <b>سینا اسدی</b> و <b>امیرعلی اسداللهی</b></p>
         <div class="chips rise" style="--d:.36s">
           <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> صفحات ۵ تا ۱۳ کتاب</span>
           <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-mountain"/></svg> کوهستان‌ها و دشت‌ها</span>
@@ -532,9 +576,9 @@ a{color:var(--a1); font-weight:700}
       <div class="mini-card frag era e2"><h3>میانه‌زیستی<br><small>مزوزوئیک</small></h3><p class="era-date">۲۴۸ تا ۶۵ میلیون سال پیش</p><p>تریاس، <b>ژوراسیک</b> (آهک‌های مزدوران)، کرتاسه</p></div>
       <div class="mini-card frag era e3"><h3>نوزیستی<br><small>سنوزوئیک</small></h3><p class="era-date">۶۵ میلیون سال پیش تا امروز</p><p>ترشیاری (اواخر آن: کوهزایی اصلی) و کواترنری (از ۱/۸ ـ شکل‌گیری چهرهٔ امروز)</p></div>
     </div>
-    <figure class="figbox wide frag"><img src="assets/khorasan/table-1-1.jpg" alt="جدول ۱ـ۱ کتاب: مشخصات دوران‌های زمین‌شناسی"><figcaption>تصویر اصلی «جدول ۱ـ۱» کتاب ـ از پرکامبرین (راست) تا کواترنری (چپ)؛ برای خواندن عددها روی تصویر کلیک کنید</figcaption></figure>
-    <div class="card frag"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg> <b>سه ایستگاه مهم خط زمان برای استان ما:</b> ژوراسیک (رسوب آهک‌های مزدوران و ذخیرهٔ گاز سرخس) ← اواخر ترشیاری (کوهزایی اصلی و پیدایش همواری‌ها) ← یک میلیون سال اخیر و دورهٔ کواترنری (فرسایش و شکل امروزی ناهمواری‌ها و ادامهٔ فعالیت گسل‌ها).</div>
-    <p class="foot-note frag" style="text-align:center">کارت‌های بالا، خواندنِ سادهٔ همان جدولِ کتاب‌اند: از ۴/۵ میلیارد سال پیش تا امروز</p>
+    <figure class="figbox wide frag"><img src="assets/khorasan/table-1-1.jpg" alt="جدول ۱ـ۱ کتاب: مشخصات دوران‌های زمین‌شناسی" style="max-height:27vh"><figcaption>تصویر اصلی «جدول ۱ـ۱» کتاب ـ از پرکامبرین (راست) تا کواترنری (چپ)؛ برای خواندن عددها روی تصویر کلیک کنید</figcaption></figure>
+    
+    <div class="chips frag" style="justify-content:center"><span class="chip">ژوراسیک ← گاز سرخس</span><span class="chip">اواخر ترشیاری ← کوهزایی اصلی</span><span class="chip">یک میلیون سال اخیر ← فرسایش و شکل امروز</span></div>
   </div>
 </section>
 
@@ -581,7 +625,7 @@ a{color:var(--a1); font-weight:700}
         <div class="card frag"><h3><svg class="ic" aria-hidden="true"><use href="#i-wave"/></svg> نقش آب‌های جاری و فرسایش</h3><p>آب‌های جاری شکل ناهمواری‌ها را تغییر داده‌اند: <b>تنگ، دره‌های عرضی و طولی و ناودیس معلق</b>. <b>کلات نادری</b> با شهرت تاریخی‌اش نمونهٔ یک ناودیس معلق است.</p></div>
         <div class="card frag"><h3><svg class="ic" aria-hidden="true"><use href="#i-droplet"/></svg> آب زیرزمینی</h3><p>درز و شکاف و حفره‌های انحلالی فراوان در سازندهای آهکی دوران دوم، زمینهٔ مساعد تشکیل <b>سفره‌های آب زیرزمینی</b> را فراهم کرده است.</p></div>
       </div>
-      <div class="col"><figure class="figbox frag"><img src="assets/khorasan/fig-5-1-fold3d.jpg" alt="نمای سه‌بعدی یک ناودیس معلق ـ شکل ۵ـ۱ کتاب"><figcaption>شکل ۵ـ۱ کتاب ـ نمای سه‌بعدی یک ناودیس معلق؛ محور ناودیس میان دو تاقدیس</figcaption></figure><figure class="figbox photo frag"><img src="assets/khorasan/fig-4-1-Kalat.jpg" alt="ناودیس معلق کلات نادری ـ شکل ۴ـ۱ کتاب" style="height:165px"><figcaption>شکل ۴ـ۱ کتاب ـ ناودیس معلق کلات نادری</figcaption></figure></div>
+      <div class="col"><figure class="figbox frag"><img src="assets/khorasan/fig-5-1-fold3d.jpg" alt="نمای سه‌بعدی یک ناودیس معلق ـ شکل ۵ـ۱ کتاب" style="max-height:38vh;width:auto;max-width:100%;margin:0 auto"><figcaption>شکل ۵ـ۱ کتاب ـ نمای سه‌بعدی ناودیس معلق</figcaption></figure><figure class="figbox photo frag"><img src="assets/khorasan/fig-4-1-Kalat.jpg" alt="ناودیس معلق کلات نادری ـ شکل ۴ـ۱ کتاب" style="height:165px"><figcaption>شکل ۴ـ۱ کتاب ـ ناودیس معلق کلات نادری</figcaption></figure></div>
     </div>
   </div>
 </section>
@@ -635,7 +679,7 @@ a{color:var(--a1); font-weight:700}
         <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><h3>پایکوه‌ها: زمین کشاورزی مناسب</h3><p>در پایکوه‌های شمالی و جنوبی بینالود، <b>مخروط‌افکنه‌ها</b> و سطوح فرسایشی ـ تراکمی با آبرفت‌ها، زمین‌های کشاورزی مناسبی به وجود آورده‌اند.</p></div>
         <div class="card frag"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg> <b>نتیجه برای زندگی مردم:</b> همین زمین‌های آبرفتی پایکوه، در <b>استقرار آبادی‌ها</b> و <b>گسترش باغ‌ها</b> نقش مهمی داشته‌اند. در عکس روبه‌رو نمایی برفی از کوه‌های بینالود دیده می‌شود.</div>
       </div>
-      <figure class="figbox photo frag"><img src="assets/khorasan/fig-7-1-binalud.jpg" alt="نمایی از کوه‌های بینالود ـ شکل ۷ـ۱ کتاب" style="height:310px"><figcaption>شکل ۷ـ۱ کتاب ـ نمایی از کوه‌های بینالود؛ ذخیرهٔ برفی کوهستان، آب دامنه‌ها و دشت‌ها را تأمین می‌کند</figcaption></figure>
+      <figure class="figbox photo frag"><img src="assets/khorasan/fig-7-1-binalud.jpg" alt="نمایی از کوه‌های بینالود ـ شکل ۷ـ۱ کتاب" style="height:268px"><figcaption>شکل ۷ـ۱ کتاب ـ نمایی از کوه‌های بینالود؛ ذخیرهٔ برفی کوهستان، آب دامنه‌ها و دشت‌ها را تأمین می‌کند</figcaption></figure>
     </div>
     <div class="qa frag"><div class="qa-head"><span class="qtag">؟</span>چرا در دامنهٔ شمالی بینالود دره‌ها عمیق‌اند، اما پایکوه‌ها برای کشاورزی مناسب‌اند؟</div>
       <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ:</span> روی خود دامنه، شیب تند و جریان متراکم آب (تحت تأثیر جنس سنگ و اقلیم) بستر رودها را می‌کند و درهٔ عمیق می‌سازد؛ اما پایین دست، در پایکوه، سرعت آب کم می‌شود و آبرفت‌ها رسوب می‌کنند و مخروط‌افکنه و خاک مناسب کشاورزی پدید می‌آید.</div></div></div>
@@ -704,7 +748,7 @@ a{color:var(--a1); font-weight:700}
       <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
       <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg></span><b>بلندترین نقطه</b>سیاه‌کوه، جنوب کاخک؛ بیش از ۲۸۰۰ متر</div>
     </div>
-    <div class="grid g2"><figure class="figbox photo frag"><img src="assets/khorasan/fig-11-1-siahkuh.jpg" alt="نمایی از دامنهٔ شمالی سیاه‌کوه ـ شکل ۱۱ـ۱ کتاب" style="height:175px"><figcaption>شکل ۱۱ـ۱ کتاب ـ نمایی از دامنهٔ شمالی سیاه‌کوه؛ آبادانی در پای کوه خشک جنوب</figcaption></figure><figure class="figbox frag"><img src="assets/khorasan/fig-12-1-south-map.jpg" alt="نقشهٔ پراکندگی کوه‌های جنوبی ـ شکل ۱۲ـ۱ کتاب" style="height:175px;object-fit:cover;width:100%"><figcaption>شکل ۱۲ـ۱ کتاب ـ نقشهٔ پراکندگی کوه‌های جنوبی؛ کویر بجستان، کویر عمرانی، دشت گناباد و سیاه‌کوه کنار مرز خراسان جنوبی</figcaption></figure></div>
+    <div class="grid g2"><figure class="figbox photo frag"><img src="assets/khorasan/fig-11-1-siahkuh.jpg" alt="نمایی از دامنهٔ شمالی سیاه‌کوه ـ شکل ۱۱ـ۱ کتاب" style="height:175px"><figcaption>شکل ۱۱ـ۱ کتاب ـ نمایی از دامنهٔ شمالی سیاه‌کوه؛ آبادانی در پای کوه خشک جنوب</figcaption></figure><figure class="figbox frag"><img src="assets/khorasan/fig-12-1-south-map.jpg" alt="نقشهٔ پراکندگی کوه‌های جنوبی ـ شکل ۱۲ـ۱ کتاب" style="max-height:24vh"><figcaption>شکل ۱۲ـ۱ کتاب ـ نقشهٔ پراکندگی کوه‌های جنوبی؛ کویر بجستان، کویر عمرانی، دشت گناباد و سیاه‌کوه کنار مرز خراسان جنوبی</figcaption></figure></div>
   </div>
 </section>
 
@@ -741,6 +785,16 @@ a{color:var(--a1); font-weight:700}
       <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-mountain"/></svg></span><h3>کوه سرخ</h3><p>به دلیل <b>سرخی خاک</b> آن که ناشی از ترکیب <b>آهن با آب و اکسیژن</b> است.</p></div>
       <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-mountain"/></svg></span><h3>سیاه‌کوه</h3><p><b>رنگ سیاه</b> آن ناشی از کانی‌های سیلیکاتی تیره و ترکیبات آهن‌دار است.</p></div>
     </div>
+    
+  </div>
+</section>
+
+<!-- ══════════ جدول ۲ـ۱ کتاب ══════════ -->
+<section class="slide" data-title="جدول ۲ـ۱ کتاب | وجه تسمیهٔ کوه‌ها" data-icon="i-book">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> برای مطالعه ـ جدول ۲ـ۱ کتاب (صفحهٔ ۱۰)</span>
+    <h2 class="title rise" style="--d:.08s">جدول اصلی کتاب را <span class="grad-text">با هم بخوانیم</span></h2>
+    <figure class="figbox wide frag"><img src="assets/khorasan/table-2-1-vajhe-tasmie.jpg" alt="جدول ۲ـ۱ کتاب: وجه تسمیهٔ برخی از کوه‌های استان خراسان رضوی"><figcaption>جدول ۲ـ۱ کتاب ـ وجه تسمیهٔ برخی از کوه‌های استان خراسان رضوی؛ همان شش کوهی که در اسلاید قبل دیدیم (برای خواندن، روی تصویر کلیک کنید)</figcaption></figure>
     <div class="qa frag"><div class="qa-head"><span class="qtag">بحث کنید</span>کدام کوه‌ها در شهرستان محل سکونت شما قرار دارند و علت نام‌گذاری آن‌ها چیست؟</div>
       <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> راهنمای پاسخ (نمونه):</span> پاسخ هر شهر متفاوت است؛ الگو: نام رشته‌کوهِ شهرستان خود را از همین درس پیدا کنید (مثلاً مشهد: بینالود و هزارمسجد؛ نیشابور: بینالود؛ سبزوار و جوین: جغتای؛ تربت حیدریه: چهل‌تن؛ کاخک و گناباد: سیاه‌کوه) و وجه تسمیه‌اش را از جدول بالا بگویید. برای کوه‌های محلیِ خارج از کتاب، از بزرگ‌ترهای محل یا منابع محلی بپرسید و در کلاس ارائه دهید.</div></div></div>
   </div>
@@ -812,7 +866,7 @@ a{color:var(--a1); font-weight:700}
         <div class="mini-card frag"><span class="num-badge">۲</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg></span><h3>فاصله از گسل</h3><p>نزدیک‌ترین خط گسل (خطوط قرمز روی نقشه) و فاصلهٔ تقریبی شهر از آن را بسنجید.</p></div>
         <div class="mini-card frag"><span class="num-badge">۳</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span><h3>سابقهٔ تاریخی</h3><p>دایره‌های زلزلهٔ بیش از ۷ و کمتر از ۷ ریشتر نزدیک شهرتان را بررسی کنید.</p></div>
       </div>
-      <figure class="figbox tall frag"><img src="assets/khorasan/fig-13-1-faults.jpg" alt="نقشهٔ پراکندگی گسل‌های استان ـ شکل ۱۳ـ۱ کتاب"><figcaption>شکل ۱۳ـ۱ کتاب ـ نقشهٔ پراکندگی گسل‌های استان خراسان رضوی (برای دیدن جزئیات کلیک کنید)</figcaption></figure>
+      <figure class="figbox tall frag"><img src="assets/khorasan/fig-13-1-faults.jpg" alt="نقشهٔ پراکندگی گسل‌های استان ـ شکل ۱۳ـ۱ کتاب" style="max-height:43vh"><figcaption>شکل ۱۳ـ۱ کتاب ـ نقشهٔ پراکندگی گسل‌های استان خراسان رضوی (برای دیدن جزئیات کلیک کنید)</figcaption></figure>
     </div>
     <div class="qa frag"><div class="qa-head"><span class="qtag">راهنمای پاسخ</span>برای چند ناحیهٔ استان، نتیجهٔ بررسی چه می‌شود؟</div>
       <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ نمونه بر اساس نقشهٔ کتاب:</span> نیشابور و دامنهٔ بینالود: نزدیک گسل بینالود ← خطر نسبی <b>بالا</b>؛ کاشمر، خلیل‌آباد، بردسکن و جنوب تربت حیدریه: روی مسیر گسل درونه ← <b>بالا</b>؛ گناباد و کاخک: نزدیک گسل کاخک با سابقهٔ زلزلهٔ ۱۳۴۷ ← <b>بالا</b>؛ فریمان و تربت جام: در امتداد گسل تربت جام ← <b>بالا تا متوسط</b>؛ نواحی دورتر از خطوط گسل و کانون‌های تاریخی، خطر نسبی کم‌تری دارند، هرچند هیچ نقطه‌ای از استان کاملاً بی‌خطر نیست.</div></div></div>
@@ -951,8 +1005,9 @@ a{color:var(--a1); font-weight:700}
     <h1 class="title rise" style="--d:.12s">به قلهٔ این درس <span class="grad-text">رسیدیم!</span></h1>
     <p class="lead rise" style="--d:.24s; max-width:720px">حالا می‌توانید روی نقشه و نیمرخ‌ها، کوه‌ها، دشت‌ها و گسل‌های استان خودتان را پیدا کنید و نقششان را در زندگی مردم توضیح دهید.</p>
     <div class="poem rise" style="--d:.36s">از هزارمسجد تا سیاه‌کوه؛ از بام خراسان تا دشت‌های حاصلخیز<small>به امید دیدار در درس سوم</small></div>
+    <p class="presenters rise" style="--d:.42s"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> ارائه‌دهندگان: <b>محمدحسین ارقبائی</b>، <b>سینا اسدی</b> و <b>امیرعلی اسداللهی</b></p>
     <div class="rise" style="--d:.48s; display:flex; gap:12px; flex-wrap:wrap; justify-content:center">
-      <button class="btn" onclick="goTo(28,true)"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg> دوباره آزمون بده</button>
+      <button class="btn" onclick="goTo(29,true)"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg> دوباره آزمون بده</button>
       <button class="btn ghost" onclick="goTo(0,true)"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg> بازگشت به آغاز</button>
       <button class="btn ghost" onclick="window.print()"><svg class="ic" aria-hidden="true"><use href="#i-printer"/></svg> چاپ همهٔ اسلایدها</button>
     </div>
@@ -1022,7 +1077,7 @@ let fitTimers = [];
 function fitSoon(){
   requestAnimationFrame(fit);
   fitTimers.forEach(clearTimeout);
-  fitTimers = [setTimeout(fit,120), setTimeout(fit,520)];
+  fitTimers = [setTimeout(fit,120), setTimeout(fit,520), setTimeout(fit,950)];
 }
 window.addEventListener('resize', ()=>requestAnimationFrame(fit));
 window.addEventListener('load', fitSoon);
@@ -1251,6 +1306,9 @@ function celebrate(){ miniConfetti(26); }
 /* ---------- شروع ---------- */
 show(0,{revealAll:true});
 
+
+/* بازتنظیم اندازه پس از بارگذاری تصاویر */
+document.querySelectorAll('img').forEach(im=>{ if(!im.complete) im.addEventListener('load', ()=>fitSoon()); });
 
 /* بزرگ‌نمایی تصاویر کتاب با کلیک */
 document.addEventListener('DOMContentLoaded',function(){
