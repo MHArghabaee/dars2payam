@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قدرت پرواز | اسلایدهای تدریس درس دوم دین و زندگی دهم</title>
+<meta name="description" content="ارائهٔ تعاملی و اسلایدی درس دوم دین و زندگی دهم: قدرت پرواز — صفحات ۱۲ تا ۲۱ کتاب درسی، همراه با پاسخ گام‌به‌گام همهٔ پرسش‌ها">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   قدرت پرواز — تم یکدست آبی/فیروزه‌ای برای همهٔ اسلایدها
+   فونت اصلی: وزیرمتن | آیات: امیری قرآن | آیکون‌ها: SVG خطی
+============================================================ */
+:root{
+  --ink:#16283f; --ink2:#4a6076;
+  --a1:#2563eb; --a2:#06b6d4; --a3:#14b8a6;         /* اکسنت یگانهٔ همهٔ اسلایدها */
+  --good:#0d9488; --bad:#e11d48;                     /* فقط برای زوج‌های معنایی خوب/بد */
+  --line:#dbe7f3; --radius:18px;
+  --shadow:0 14px 38px rgba(21,78,160,.14);
+  --grad:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));
+}
+*{box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:"Vazirmatn",Tahoma,sans-serif; color:var(--ink); background:#dceefb; overflow:hidden}
+button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit}
+img{max-width:100%; display:block}
+::selection{background:#bae6fd}
+:focus-visible{outline:3px solid rgba(37,99,235,.5); outline-offset:2px}
+
+/* آیکون‌های SVG */
+.ic{width:1.08em; height:1.08em; flex:none; vertical-align:-.2em;
+  fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.ic.lg{width:1.5em; height:1.5em}
+
+/* ---------- پس‌زمینهٔ واحد (برای همهٔ اسلایدها یکسان) ---------- */
+.sky-bg{position:fixed; inset:0; z-index:0; overflow:hidden;
+  background:linear-gradient(155deg,#bfdefa 0%,#d9eefc 34%,#e6f7f7 68%,#eefaf3 100%)}
+.orb{position:absolute; border-radius:50%; filter:blur(64px); opacity:.5; animation:orbFloat 16s ease-in-out infinite alternate}
+.orb.o1{width:460px;height:460px;background:#7dd3fc; top:-170px; inset-inline-start:-120px}
+.orb.o2{width:400px;height:400px;background:#5eead4; bottom:-180px; inset-inline-end:-100px; animation-delay:-6s}
+.orb.o3{width:240px;height:240px;background:#93c5fd; top:48%; inset-inline-end:16%; opacity:.35; animation-delay:-11s}
+@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(44px,30px) scale(1.1)}}
+.sunrays{position:absolute; top:-330px; inset-inline-start:50%; width:680px;height:680px; transform:translateX(50%);
+  background:repeating-conic-gradient(from 0deg, rgba(255,255,255,.32) 0 6deg, transparent 6deg 15deg);
+  border-radius:50%; animation:spin 70s linear infinite; opacity:.55}
+@keyframes spin{to{transform:translateX(50%) rotate(360deg)}}
+.cloud{position:absolute; width:96px; height:30px; background:rgba(255,255,255,.9); border-radius:99px;
+  animation:drift linear infinite; box-shadow:0 10px 22px rgba(37,99,235,.12)}
+.cloud::before,.cloud::after{content:""; position:absolute; background:inherit; border-radius:50%}
+.cloud::before{width:44px;height:44px; top:-22px; inset-inline-start:14px}
+.cloud::after{width:30px;height:30px; top:-14px; inset-inline-end:14px}
+.cloud.c1{top:8%; animation-duration:90s}.cloud.c2{top:20%; transform:scale(.65); animation-duration:120s; animation-delay:-45s}
+.cloud.c3{top:4%; transform:scale(.8); animation-duration:105s; animation-delay:-75s}
+@keyframes drift{from{inset-inline-start:-12%}to{inset-inline-start:106%}}
+.flybird{position:absolute; color:#fff; opacity:.95; animation:flyAcross linear infinite; filter:drop-shadow(0 4px 8px rgba(21,78,160,.35))}
+.flybird .ic{width:30px;height:30px; stroke-width:1.8}
+.flybird.b1{top:12%; animation-duration:30s}.flybird.b2{top:23%; animation-duration:38s; animation-delay:-16s}
+.flybird.b2 .ic{width:21px;height:21px}.flybird.b3{top:6%; animation-duration:34s; animation-delay:-24s}
+.flybird.b3 .ic{width:25px;height:25px}
+@keyframes flyAcross{0%{inset-inline-start:-5%; transform:translateY(0)}50%{transform:translateY(-22px)}100%{inset-inline-start:105%; transform:translateY(5px)}}
+.feather{position:absolute; color:rgba(37,99,235,.5); animation:fall linear infinite}
+.feather .ic{width:100%;height:100%}
+@keyframes fall{0%{transform:translate(0,-6vh) rotate(0)}100%{transform:translate(-5vw,108vh) rotate(320deg)}}
+
+/* ---------- نوار پیشرفت ---------- */
+#progressWrap{position:fixed; top:0; inset-inline:0; height:6px; background:rgba(255,255,255,.5); z-index:60}
+#progressBar{height:100%; width:0; background:var(--grad); background-size:200% 100%; animation:sheen 4s linear infinite;
+  transition:width .55s cubic-bezier(.6,0,.2,1); border-radius:0 99px 99px 0}
+@keyframes sheen{to{background-position:200% 0}}
+
+/* ---------- صحنه و اسلایدها: بدون اسکرول، با کوچک‌سازی خودکار ---------- */
+#stage{position:relative; z-index:2; height:100dvh; width:100%}
+.slide{position:absolute; inset:0; padding:14px clamp(12px,3vw,40px) 96px; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; visibility:hidden; transform:translateX(-44px) scale(.99);
+  transition:opacity .5s ease, transform .6s cubic-bezier(.22,.9,.3,1), visibility .5s}
+body[data-dir="back"] .slide{transform:translateX(44px) scale(.99)}
+.slide.active{opacity:1; visibility:visible; transform:none}
+.slide-inner{width:min(1160px,100%); display:flex; flex-direction:column; justify-content:center; gap:11px;
+  transform-origin:center center; will-change:transform}
+.slide-inner.top{justify-content:center}
+.slide .rise{opacity:0}
+.slide.active .rise{animation:riseIn .6s cubic-bezier(.2,.8,.3,1) both; animation-delay:var(--d,0s)}
+@keyframes riseIn{from{opacity:0; transform:translateY(20px)}to{opacity:1; transform:none}}
+
+/* قطعات (Fragments) مثل پاورپوینت */
+.frag{opacity:0; transform:translateY(14px) scale(.98); transition:opacity .45s ease, transform .5s cubic-bezier(.2,.8,.3,1); pointer-events:none}
+.frag.on{opacity:1; transform:none; pointer-events:auto}
+#fragHint{position:fixed; bottom:88px; inset-inline-start:50%; transform:translateX(50%) translateY(14px); z-index:55;
+  background:#16283f; color:#fff; padding:7px 16px; border-radius:99px; font-size:.82rem; font-weight:700;
+  display:flex; align-items:center; gap:7px; opacity:0; pointer-events:none; transition:.3s; box-shadow:var(--shadow); white-space:nowrap}
+#fragHint.show{opacity:1; transform:translateX(50%) translateY(0)}
+#fragHint .ic{animation:nudgeL 1s ease-in-out infinite}
+@keyframes nudgeL{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
+
+/* ---------- اجزای محتوا (فشرده، مناسب یک صفحه) ---------- */
+.kicker{display:inline-flex; align-items:center; gap:7px; align-self:flex-start; background:rgba(255,255,255,.88);
+  border:1.5px solid #bcd9f7; color:var(--a1); font-weight:800; font-size:.8rem;
+  padding:5px 13px; border-radius:99px; box-shadow:0 6px 18px rgba(21,78,160,.12)}
+.kicker .ic{color:var(--a3)}
+h1.title{font-size:clamp(2rem,5.4vw,3.7rem); font-weight:900; line-height:1.18}
+h2.title{font-size:clamp(1.45rem,3.6vw,2.35rem); font-weight:900; line-height:1.3}
+.grad-text{background:var(--grad); background-size:200% 100%; -webkit-background-clip:text; background-clip:text;
+  color:transparent; animation:sheen 5s linear infinite}
+.lead{font-size:clamp(.95rem,1.7vw,1.13rem); line-height:1.85; color:var(--ink2); font-weight:500}
+.lead b,.card b{color:var(--ink)}
+.hl,.hl-g,.hl-p{background:linear-gradient(transparent 64%, #bae6fd 64%); padding:0 3px; font-weight:800; color:var(--ink)}
+.hl-g{background:linear-gradient(transparent 64%, #99f6e4 64%)}
+
+.card{background:rgba(255,255,255,.93); border:1.5px solid #fff; border-radius:var(--radius);
+  padding:13px clamp(14px,2vw,20px); box-shadow:var(--shadow); line-height:1.78; font-size:clamp(.92rem,1.5vw,1.04rem)}
+.card h3{font-size:1.08em; font-weight:900; margin-bottom:3px; display:flex; align-items:center; gap:7px}
+.card h3 .ic{color:var(--a1)}
+.grid{display:grid; gap:12px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.split{display:grid; grid-template-columns:1.12fr .88fr; gap:20px; align-items:center}
+.split.rev{grid-template-columns:.88fr 1.12fr}
+@media(max-width:860px){.split,.split.rev{grid-template-columns:1fr}}
+.col{display:flex; flex-direction:column; gap:11px}
+
+.mini-card{background:rgba(255,255,255,.95); border-radius:16px; padding:13px 15px; box-shadow:0 10px 26px rgba(21,78,160,.12);
+  border-top:5px solid var(--a2); line-height:1.72; transition:transform .3s, box-shadow .3s; position:relative; text-align:right; font-size:.95rem}
+.mini-card:hover{transform:translateY(-4px); box-shadow:0 18px 36px rgba(21,78,160,.18)}
+.mini-card.tone-good{border-top-color:var(--good)} .mini-card.tone-good .ico{background:linear-gradient(135deg,#0d9488,#2dd4bf)}
+.mini-card.tone-bad{border-top-color:var(--bad)} .mini-card.tone-bad .ico{background:linear-gradient(135deg,#e11d48,#fb7185)}
+.ico{display:inline-grid; place-items:center; width:42px; height:42px; border-radius:13px; color:#fff;
+  background:var(--grad); box-shadow:0 8px 18px rgba(37,99,235,.35)}
+.ico .ic{width:23px; height:23px; stroke-width:2}
+.mini-card h3{font-weight:900; font-size:1.04rem; margin:7px 0 3px; display:flex; align-items:center; gap:6px}
+.mini-card p{font-size:.9rem; color:var(--ink2)}
+.num-badge{position:absolute; top:9px; inset-inline-end:11px; width:29px;height:29px; border-radius:50%;
+  background:var(--grad); color:#fff; font-weight:900; font-size:.9rem; display:grid; place-items:center; box-shadow:0 7px 16px rgba(37,99,235,.35)}
+
+/* آیات */
+.verse-box{position:relative; background:linear-gradient(140deg,#1e40af,#2563eb 45%,#0891b2); color:#fff;
+  border-radius:22px; padding:18px clamp(16px,3vw,32px) 14px; box-shadow:0 20px 44px rgba(37,99,235,.35); overflow:hidden}
+.verse-box::before{content:"﴿"; position:absolute; top:0; inset-inline-start:13px; font-family:"Amiri Quran",serif; font-size:2.4rem; opacity:.35}
+.verse-box::after{content:"﴾"; position:absolute; bottom:0; inset-inline-end:13px; font-family:"Amiri Quran",serif; font-size:2.4rem; opacity:.35}
+.verse{font-family:"Amiri Quran","Vazirmatn",serif; font-size:clamp(1.18rem,2.7vw,1.75rem); line-height:2.05; text-align:center}
+.verse .ayah-num{display:inline-grid; place-items:center; min-width:1.7em;height:1.7em; padding:0 .25em; vertical-align:middle;
+  background:rgba(255,255,255,.22); border:1.5px solid rgba(255,255,255,.7); border-radius:50% 50% 50% 4px;
+  font-size:.5em; font-family:"Vazirmatn"; font-weight:800}
+.tarjome{background:rgba(255,255,255,.95); border-radius:15px; border-inline-start:6px solid var(--a3);
+  padding:11px 16px; line-height:1.85; box-shadow:0 10px 24px rgba(21,78,160,.11); font-size:clamp(.92rem,1.55vw,1.04rem)}
+.tarjome .lbl{font-weight:900; color:#0f766e; font-size:.8rem; display:block}
+.src{font-size:.8rem; color:#fff; background:rgba(255,255,255,.2); display:inline-block; padding:2px 12px; border-radius:99px; font-weight:700; margin-top:7px}
+.src.dark{background:#e0f2fe; color:var(--a1)}
+
+/* پرسش و پاسخ — عنوانِ قابل‌کلیک با فلش چرخان (آکاردئونی) */
+.qa{background:rgba(255,255,255,.96); border-radius:16px; box-shadow:0 10px 26px rgba(21,78,160,.12); border:1.5px solid #fff; overflow:hidden}
+.qa-head{padding:10px 14px; font-weight:800; line-height:1.7; font-size:clamp(.92rem,1.55vw,1.03rem);
+  display:flex; align-items:center; gap:9px; cursor:pointer; user-select:none; transition:background .25s}
+.qa-head:hover{background:#eff6ff}
+.qa-head .qtag{flex:none; background:var(--grad); color:#fff; font-size:.76rem; font-weight:900; padding:2px 11px; border-radius:99px}
+.qa-head .qtxt{flex:1}
+.qa-head .chev{flex:none; margin-inline-start:auto; width:30px;height:30px; border-radius:50%; display:grid; place-items:center;
+  background:#e0f2fe; color:var(--a1); transition:transform .4s cubic-bezier(.3,.7,.3,1), background .3s}
+.qa-head .chev .ic{width:17px;height:17px; stroke-width:2.4}
+.qa.open .chev{transform:rotate(180deg); background:var(--a1); color:#fff}
+.qa .ans{display:grid; grid-template-rows:0fr; transition:grid-template-rows .45s cubic-bezier(.4,0,.2,1)}
+.qa.open .ans{grid-template-rows:1fr}
+.ans-in{overflow:hidden; min-height:0; margin:0 12px; background:#f0fdfa; border:2px dashed #5eead4; border-radius:13px;
+  padding:0 14px; line-height:1.8; font-size:clamp(.9rem,1.5vw,1rem); transition:padding .3s, margin .3s}
+.qa.open .ans-in{padding:9px 14px; margin-bottom:11px}
+.ans-in .albl{font-weight:900; color:#0f766e; font-size:.8rem; display:flex; align-items:center; gap:5px}
+.book-q{background:rgba(255,255,255,.94); border:2px dashed #7dd3fc; border-radius:15px; padding:11px 16px; line-height:1.82; font-size:clamp(.92rem,1.55vw,1.03rem)}
+.book-q .lbl{font-weight:900; color:var(--a1); font-size:.8rem; display:flex; align-items:center; gap:5px}
+
+.poem{background:rgba(255,255,255,.94); border:2px solid #bae6fd; border-radius:18px; padding:13px 16px; text-align:center;
+  font-size:clamp(1.02rem,2.3vw,1.32rem); font-weight:800; line-height:2.05; box-shadow:var(--shadow)}
+.poem small{display:block; font-size:.78rem; color:var(--a1); font-weight:700; margin-top:3px}
+.big-quote{font-size:clamp(1.15rem,2.8vw,1.65rem); font-weight:900; line-height:1.8; text-align:center}
+.chips{display:flex; flex-wrap:wrap; gap:8px}
+.chip{display:inline-flex; align-items:center; gap:6px; background:#fff; border:1.5px solid var(--line);
+  padding:6px 13px; border-radius:99px; font-weight:800; font-size:.88rem; box-shadow:0 5px 14px rgba(21,78,160,.08)}
+.chip .ic{color:var(--a1)}
+.chip.good{border-color:#5eead4; background:#f0fdfa}.chip.good .ic{color:var(--good)}
+.chip.bad{border-color:#fda4af; background:#fff1f2}.chip.bad .ic{color:var(--bad)}
+
+/* تصویرسازی جلد (SVG) */
+.cover-art{border-radius:24px; overflow:hidden; box-shadow:0 26px 60px rgba(21,78,160,.3); border:5px solid #fff; transform:rotate(-1.5deg)}
+.cover-art svg{display:block; width:100%; height:auto}
+.cover-art .dashpath{stroke-dasharray:7 9; animation:dashmove 1.6s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-32}}
+.cover-art .plane{animation:planeBob 3s ease-in-out infinite; transform-box:fill-box; transform-origin:center}
+.title .ic{color:#0891b2; width:.82em; height:.82em}
+@keyframes planeBob{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-6px,-10px) rotate(-4deg)}}
+.cover-art .twinkle{animation:twinkle 2.4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+
+.btn{display:inline-flex; align-items:center; gap:9px; font-weight:900; font-size:1rem; padding:12px 24px; border-radius:99px;
+  background:var(--grad); color:#fff; box-shadow:0 13px 30px rgba(37,99,235,.4); transition:transform .25s, filter .25s}
+.btn:hover{transform:translateY(-2px); filter:brightness(1.07)}
+.btn.ghost{background:rgba(255,255,255,.92); color:var(--ink); box-shadow:var(--shadow)}
+.btn .ic{animation:nudgeL 1.2s ease-in-out infinite}
+.btn.ghost .ic{animation:none; color:var(--a1)}
+
+.flow{display:flex; align-items:stretch; gap:8px; flex-wrap:wrap}
+.flow .step{flex:1; min-width:140px; background:#fff; border-radius:15px; padding:11px 12px; text-align:center;
+  box-shadow:0 10px 24px rgba(21,78,160,.11); border-bottom:5px solid var(--a2); line-height:1.68; font-weight:600; font-size:.88rem}
+.flow .step .ico{margin:0 auto 6px}
+.flow .step b{display:block; font-size:.95rem}
+.flow .sep{align-self:center; color:var(--a1); display:grid; place-items:center}
+.flow .sep .ic{width:22px;height:22px; stroke-width:2.6; animation:nudgeL 1.2s ease-in-out infinite}
+
+.vs-wrap{display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:stretch}
+@media(max-width:760px){.vs-wrap{grid-template-columns:1fr}}
+.vs{align-self:center; justify-self:center; width:52px;height:52px;border-radius:50%; background:var(--grad);
+  color:#fff; font-weight:900; display:grid; place-items:center; font-size:.95rem; box-shadow:0 12px 26px rgba(37,99,235,.4)}
+ul.ticks{list-style:none; line-height:1.85; font-size:.95rem}
+ul.ticks li{padding-inline-start:27px; position:relative}
+ul.ticks li::before{content:""; position:absolute; inset-inline-start:0; top:5px; width:19px;height:19px; border-radius:50%;
+  background:var(--a3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/11px no-repeat}
+ul.cross li::before{background:var(--bad) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E") center/10px no-repeat}
+
+table.books{width:100%; border-collapse:separate; border-spacing:0; background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow); font-size:.85rem}
+table.books th{background:#1e6fd9; color:#fff; padding:8px 10px; font-weight:900; text-align:right}
+table.books td{padding:6px 10px; border-top:1px solid #e0f2fe; line-height:1.55}
+table.books tr:nth-child(even) td{background:#f0f9ff}
+table.books tr:hover td{background:#e0f2fe}
+
+/* آزمون */
+.quiz-box{background:rgba(255,255,255,.96); border-radius:22px; box-shadow:0 22px 50px rgba(21,78,160,.2);
+  padding:clamp(15px,2.5vw,26px); border:2px solid #bae6fd}
+.quiz-meta{display:flex; justify-content:space-between; align-items:center; font-weight:900; color:var(--a1); margin-bottom:7px; flex-wrap:wrap; gap:8px}
+.quiz-meta .score{display:inline-flex; align-items:center; gap:6px}
+.quiz-meta .score .ic{color:#0891b2}
+.quiz-bar{height:10px; background:#e0f2fe; border-radius:99px; overflow:hidden; margin-bottom:13px}
+.quiz-bar i{display:block; height:100%; width:0; background:var(--grad); transition:width .5s; border-radius:99px}
+#quizQ{font-size:clamp(1.02rem,2.2vw,1.3rem); font-weight:900; line-height:1.8; margin-bottom:11px}
+.opt{display:block; width:100%; text-align:right; background:#f8fafc; border:2px solid #e2e8f0; border-radius:13px;
+  padding:9px 15px; margin-bottom:8px; font-size:.97rem; font-weight:700; transition:.22s; line-height:1.65}
+.opt:hover:not(:disabled){border-color:var(--a2); background:#f0f9ff; transform:translateX(-4px)}
+.opt.correct{background:#f0fdfa; border-color:var(--good); color:#065f46; animation:pop .35s}
+.opt.wrong{background:#fff1f2; border-color:var(--bad); color:#881337; animation:shake .35s}
+.opt:disabled{cursor:default}
+@keyframes pop{50%{transform:scale(1.02)}}
+@keyframes shake{20%,60%{transform:translateX(5px)}40%,80%{transform:translateX(-5px)}}
+#quizFeed{min-height:28px; font-weight:800; line-height:1.8; font-size:.95rem}
+.score-final{text-align:center; padding:6px 0}
+.score-final .big{font-size:clamp(2.1rem,6vw,3.4rem); font-weight:900}
+.score-final .stars{display:flex; justify-content:center; gap:6px; color:#06b6d4; margin-bottom:4px}
+.score-final .stars .ic{width:30px;height:30px}
+
+/* ---------- نوار کنترل پایین (فلش‌های SVG) ---------- */
+#controls{position:fixed; bottom:12px; inset-inline-start:50%; transform:translateX(50%); z-index:60;
+  display:flex; align-items:center; gap:7px; background:rgba(18,38,63,.9); backdrop-filter:blur(14px);
+  padding:8px 10px; border-radius:99px; box-shadow:0 20px 44px rgba(5,20,45,.45); color:#fff; max-width:97vw}
+.nav-btn{display:inline-flex; align-items:center; gap:8px; font-weight:900; font-size:.95rem; padding:10px 17px; border-radius:99px; transition:.22s; color:#fff; white-space:nowrap}
+.nav-btn .ic{width:19px;height:19px; stroke-width:2.6}
+#nextBtn{background:var(--grad); box-shadow:0 10px 22px rgba(37,99,235,.5)}
+#nextBtn:hover{filter:brightness(1.12); transform:scale(1.04)}
+#prevBtn{background:rgba(255,255,255,.14)}#prevBtn:hover{background:rgba(255,255,255,.27)}
+.nav-btn:disabled{opacity:.32; cursor:default; transform:none!important}
+.icon-btn{width:40px;height:40px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,.12); transition:.22s; color:#fff; flex:none}
+.icon-btn .ic{width:19px;height:19px}
+.icon-btn:hover{background:rgba(255,255,255,.28); transform:scale(1.07)}
+#counter{font-weight:800; font-size:.88rem; min-width:72px; text-align:center; font-variant-numeric:tabular-nums}
+#dots{position:fixed; top:50%; inset-inline-end:10px; transform:translateY(-50%); z-index:55; display:flex; flex-direction:column; gap:5px}
+#dots button{width:9px;height:9px;border-radius:99px;background:rgba(21,78,160,.3); transition:.3s; padding:0}
+#dots button.on{height:26px; background:var(--grad)}
+@media(max-width:760px){#dots{display:none} #counter{min-width:56px} .nav-btn{padding:9px 12px; font-size:.88rem} .hide-sm{display:none}}
+
+/* منوی فهرست */
+.overlay{position:fixed; inset:0; z-index:90; background:rgba(9,24,48,.8); backdrop-filter:blur(9px);
+  opacity:0; visibility:hidden; transition:.32s; display:flex; align-items:center; justify-content:center; padding:16px}
+.overlay.open{opacity:1; visibility:visible}
+.menu-panel{background:#fff; border-radius:24px; max-width:960px; width:100%; max-height:88dvh; overflow-y:auto; padding:22px;
+  box-shadow:0 36px 90px rgba(0,0,0,.5); transform:translateY(22px) scale(.97); transition:.38s cubic-bezier(.2,.8,.3,1)}
+.overlay.open .menu-panel{transform:none}
+.menu-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(205px,1fr)); gap:10px; margin-top:14px}
+.menu-item{display:flex; gap:10px; align-items:flex-start; text-align:right; background:#f8fafc; border:2px solid #e2e8f0;
+  border-radius:14px; padding:10px 12px; font-weight:800; line-height:1.55; transition:.22s; font-size:.9rem}
+.menu-item:hover{border-color:var(--a2); background:#f0f9ff; transform:translateY(-2px)}
+.menu-item.on{border-color:var(--a1); background:#eff6ff}
+.menu-item .mico{flex:none; width:34px;height:34px; border-radius:10px; display:grid; place-items:center; background:var(--grad); color:#fff}
+.menu-item .mico .ic{width:18px;height:18px}
+.menu-item small{display:block; color:var(--ink2); font-weight:700; font-size:.76rem}
+
+.confetti{position:fixed; top:-14px; z-index:120; pointer-events:none; border-radius:3px; animation:confFall linear forwards}
+@keyframes confFall{to{transform:translateY(110dvh) rotate(560deg); opacity:.25}}
+.foot-note{font-size:.8rem; color:var(--ink2); line-height:1.8}
+a{color:var(--a1); font-weight:700}
+.kbd{display:inline-block; background:#1e3a5f; color:#fff; border-radius:6px; padding:0 8px; font-size:.76rem; font-weight:800; box-shadow:0 3px 0 #0f2440; margin:0 2px}
+@media print{
+  #controls,#dots,#progressWrap,#fragHint,.sky-bg,#feathers{display:none!important}
+  body{overflow:visible; background:#fff}#stage{height:auto}
+  .slide{position:static; opacity:1; visibility:visible; transform:none; page-break-after:always; overflow:visible; padding:16px; display:block}
+  .slide-inner{transform:none!important}
+  .frag,.slide .rise{opacity:1; transform:none}.qa .ans{grid-template-rows:1fr}.qa .ans-in{padding:9px 14px; margin-bottom:11px}
+}
+
+</style>
+</head>
+<body data-dir="fwd">
+<!-- مجموعهٔ آیکون‌های SVG خطی -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-feather" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+<symbol id="i-note" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+<symbol id="i-gem" viewBox="0 0 24 24"><polygon points="6 2 18 2 22 8 12 22 2 8"/><line x1="2" y1="8" x2="22" y2="8"/><polyline points="9.5 8 12 22 14.5 8"/><polyline points="6 2 9.5 8 12 2 14.5 8 18 2"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+<symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v3M12 6v12M8 21h8M12 18v3"/><path d="M4 6h16"/><path d="M6 6l-2.6 6a3.4 3.4 0 0 0 5.2 0L6 6z"/><path d="M18 6l-2.6 6a3.4 3.4 0 0 0 5.2 0L18 6z"/><circle cx="12" cy="6" r="1.1"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4.1 0 7-2.8 7-6.6 0-3-1.9-5-3.4-7C14.1 6.5 13.2 4.6 13.2 2c-3 2.1-4.6 4.8-4.5 7.7-.9-.5-1.7-1.4-2.2-2.7C5.3 8.9 5 12.1 5 15.4 5 19.2 7.9 22 12 22z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M17.94 17.94A10.6 10.6 0 0 1 12 20c-7 0-11-8-11-8a18.4 18.4 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.5 9.5 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12A3 3 0 1 1 9.88 9.88"/><line x1="1" y1="1" x2="23" y2="23"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+<symbol id="i-chevD" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+<symbol id="i-chevL" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+<symbol id="i-chevR" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+<symbol id="i-arrowL" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+<symbol id="i-arrowR" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+<symbol id="i-return" viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+<symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><polyline points="8.2 13.9 7 23 12 20 17 23 15.8 13.9"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></symbol>
+<symbol id="i-message" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol>
+<symbol id="i-printer" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+<symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-1.6 10.5H4.6L3 8z"/><line x1="5" y1="21" x2="19" y2="21"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+<symbol id="i-volume" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></symbol>
+<symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-8"/><path d="M12 13c0-3.9 2.8-6 7-6 0 4.2-2.1 6.6-7 6z"/><path d="M12 13c0-3.9-2.8-6-7-6 0 4.2 2.1 6.6 7 6z"/><path d="M5 21h14"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-paw" viewBox="0 0 24 24"><circle cx="5" cy="10" r="1.8"/><circle cx="9.5" cy="5.5" r="1.9"/><circle cx="14.5" cy="5.5" r="1.9"/><circle cx="19" cy="10" r="1.8"/><path d="M12 11c3.2 0 5.5 2.6 5.5 5.2 0 1.9-1.4 2.9-3 2.4-1-.3-4-.3-5 0-1.6.5-3-.5-3-2.4C6.5 13.6 8.8 11 12 11z"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></symbol>
+<symbol id="i-foot" viewBox="0 0 24 24"><path d="M7.5 4.5c1.7-.4 3.1 1.5 3.2 4 .1 2.6-1 4.9-2.7 5.2-1.7.3-3.1-1.6-3.2-4.1C4.7 7 5.8 4.9 7.5 4.5z"/><circle cx="5.6" cy="3" r=".9"/><circle cx="9" cy="2.3" r=".9"/><path d="M16.5 12.5c1.7-.4 3.1 1.5 3.2 4 .1 2.6-1 4.9-2.7 5.2-1.7.3-3.1-1.6-3.2-4.1-.1-2.6 1-4.7 2.7-5.1z"/><circle cx="14.6" cy="11" r=".9"/><circle cx="18" cy="10.3" r=".9"/></symbol>
+</defs>
+</svg>
+
+
+<!-- پس‌زمینه -->
+<div class="sky-bg" aria-hidden="true">
+  <div class="sunrays"></div><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <div class="flybird b1"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg></div><div class="flybird b2"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg></div><div class="flybird b3"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg></div>
+</div>
+<div id="feathers" aria-hidden="true"></div>
+<div id="progressWrap"><div id="progressBar"></div></div>
+
+<main id="stage">
+
+<!-- ══════════ ۱ | جلد ══════════ -->
+<section class="slide" data-title="قدرت پرواز" data-icon="i-feather">
+  <div class="slide-inner">
+    <div class="split">
+      <div>
+        <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-book-open"/></svg> دین و زندگی ۱ ـ پایهٔ دهم &nbsp;•&nbsp; درس دوم</span>
+        <h1 class="title rise" style="--d:.12s; margin-top:14px">قدرتِ <span class="grad-text">پرواز</span> <svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg></h1>
+        <p class="lead rise" style="--d:.24s">خداوند در وجود ما <b>سرمایه‌های بزرگی</b> گذاشته تا بتوانیم به سوی <span class="hl">هدف زندگی؛ یعنی تقرّب به خدا</span> پرواز کنیم. در این درس سرمایه‌ها و موانعِ راه پرواز را می‌شناسیم.</p>
+        <div class="chips rise" style="--d:.36s">
+          <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> صفحات ۱۲ تا ۲۱ کتاب</span><span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> ۶ سرمایهٔ انسان</span>
+          <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> ۲ مانع راه</span><span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ همهٔ پرسش‌ها</span>
+        </div>
+        <div class="rise" style="--d:.48s; display:flex; gap:12px; flex-wrap:wrap; margin-top:8px">
+          <button class="btn" onclick="goTo(1)">شروع پرواز <span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></span></button>
+          <button class="btn ghost" onclick="toggleMenu(true)"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg> فهرست اسلایدها</button>
+        </div>
+        
+      </div>
+      <div class="cover-art rise" style="--d:.3s" role="img" aria-label="تصویرسازی مسیر پرواز به سوی هدف با شش سرمایه">
+<svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="skyG" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#38bdf8"/><stop offset=".55" stop-color="#2563eb"/><stop offset="1" stop-color="#0d9488"/>
+</linearGradient>
+<linearGradient id="hillG" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#0f766e"/>
+</linearGradient>
+</defs>
+<rect width="520" height="400" fill="url(#skyG)"/>
+<circle cx="95" cy="72" r="34" fill="#fef9c3" opacity=".95"/>
+<g stroke="#fef9c3" stroke-width="4" stroke-linecap="round" opacity=".8">
+<line x1="95" y1="16" x2="95" y2="26"/><line x1="95" y1="118" x2="95" y2="128"/>
+<line x1="39" y1="72" x2="49" y2="72"/><line x1="141" y1="72" x2="151" y2="72"/>
+<line x1="56" y1="33" x2="63" y2="40"/><line x1="127" y1="104" x2="134" y2="111"/>
+<line x1="134" y1="33" x2="127" y2="40"/><line x1="63" y1="104" x2="56" y2="111"/>
+</g>
+<g fill="#ffffff" opacity=".92">
+<ellipse cx="380" cy="66" rx="52" ry="17"/><ellipse cx="355" cy="54" rx="26" ry="14"/><ellipse cx="406" cy="56" rx="20" ry="11"/>
+<ellipse cx="150" cy="170" rx="44" ry="14" opacity=".75"/><ellipse cx="130" cy="160" rx="21" ry="11" opacity=".75"/>
+<ellipse cx="452" cy="190" rx="40" ry="13" opacity=".7"/><ellipse cx="434" cy="180" rx="19" ry="10" opacity=".7"/>
+</g>
+<g stroke="#e0f2fe" stroke-width="3.5" fill="none" stroke-linecap="round">
+<path d="M228 84 q11-11 22 0 q11-11 22 0"/>
+<path d="M286 116 q9-9 18 0 q9-9 18 0"/>
+<path d="M176 118 q8-8 16 0 q8-8 16 0"/>
+</g>
+<path class="dashpath" d="M452 342 C370 250 330 330 262 248 C200 174 150 250 96 158" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+<g fill="#ffffff" stroke="#0ea5e9" stroke-width="3">
+<circle cx="452" cy="342" r="8"/><circle cx="372" cy="282" r="7"/><circle cx="300" cy="284" r="7"/>
+<circle cx="238" cy="216" r="7"/><circle cx="172" cy="212" r="7"/><circle cx="128" cy="188" r="7"/>
+</g>
+<g class="twinkle" fill="#fef08a">
+<path d="M330 140l3.5 8 8 3.5-8 3.5L330 163l-3.5-8-8-3.5 8-3.5z"/>
+<path d="M432 110l2.8 6.4 6.4 2.8-6.4 2.8L432 128.4l-2.8-6.4-6.4-2.8 6.4-2.8z"/>
+<path d="M84 240l2.8 6.4 6.4 2.8-6.4 2.8L84 258.4l-2.8-6.4-6.4-2.8 6.4-2.8z"/>
+</g>
+<g transform="translate(64,110) rotate(-18)"><g class="plane">
+<path d="M44 4 L14 34 L22 52 L30 38 L52 46 L44 4 Z" fill="#ffffff" stroke="#0369a1" stroke-width="3" stroke-linejoin="round"/>
+<path d="M44 4 L30 38 L22 52" fill="none" stroke="#0369a1" stroke-width="3" stroke-linejoin="round"/>
+</g></g>
+<path d="M0 400 L0 336 C110 300 190 352 300 330 C390 312 450 338 520 322 L520 400 Z" fill="url(#hillG)" opacity=".95"/>
+<g font-family="Vazirmatn,Tahoma" font-weight="800">
+<rect x="300" y="352" width="196" height="34" rx="17" fill="#082f49" opacity=".82"/>
+<text x="398" y="375" text-anchor="middle" font-size="16" fill="#ffffff">شش سرمایه، یک پرواز</text>
+</g>
+</svg>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۲ | نقشه راه ══════════ -->
+<section class="slide" data-title="نقشهٔ راه درس" data-icon="i-map">
+  <div class="slide-inner">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> قبل از حرکت، نقشه را ببینیم</span>
+    <h2 class="title rise" style="--d:.1s">در این درس چه <span class="grad-text">یاد می‌گیریم؟</span></h2>
+    <div class="flow">
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-book-open"/></svg></span><b>جلسهٔ اول</b><br>قرائت آیات و شناخت<br>۶ سرمایهٔ انسان</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span><b>تناسب سرمایه و هدف</b><br>چرا سرمایهٔ بزرگ،<br>هدف بزرگ می‌خواهد؟</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-gem"/></svg></span><b>داستان گنج</b><br>گنج نزدیک است؛<br>درون خود ماست!</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg></span><b>جلسهٔ دوم</b><br>موانع راه:<br>نفس امّاره و شیطان</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg></span><b>پاسخ پرسش‌ها</b><br>چرا خدا شیطان را آفرید؟<br>عبادت به سلیقهٔ خودم؟</div>
+    </div>
+    <div class="card frag" style="text-align:center"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg> <b>هدف نهایی درس:</b> خودمان را بهتر بشناسیم؛ چون <span class="hl">اولین گام حرکت به سوی خدا، شناخت انسان؛ یعنی «خودشناسی»</span> است.</div>
+  </div>
+</section>
+
+<!-- ══════════ ۳ | خودشناسی ══════════ -->
+<section class="slide" data-title="خودشناسی؛ سودمندترین دانش" data-icon="i-search">
+  <div class="slide-inner">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> صفحهٔ ۱۴ کتاب ـ مقدمهٔ درس</span>
+    <h2 class="title rise" style="--d:.1s">اولین گام: <span class="grad-text">شناختِ انسان</span></h2>
+    <div class="grid g2">
+      <div class="card rise" style="--d:.2s">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> یادآوری درس اول</h3>
+        <p>جامع‌ترین و اصلی‌ترین هدف زندگی انسان، <b>نزدیکی و تقرّب به خداست</b>؛ و رشد و کمال و درنتیجه رستگاری او فقط با گام برداشتن به سوی این هدف میسّر می‌شود.</p>
+      </div>
+      <div class="card rise" style="--d:.3s">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-foot"/></svg> اولین گام در این مسیر چیست؟</h3>
+        <p><b>شناخت انسان</b>: شناخت سرمایه‌ها، توانایی‌ها و استعدادهای او، چگونگی به‌کارگیری این سرمایه‌ها و همچنین شناخت <b>موانع</b> حرکت و نحوهٔ مقابله با آنها.</p>
+      </div>
+    </div>
+    <div class="verse-box frag" style="text-align:center">
+      <p class="big-quote" style="color:#fff">«خودشناسی، سودمندترین دانش‌هاست» <svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></p>
+      <span class="src">غررالحکم، تمیمی آمدی، حدیث ۹۸۶۵</span>
+    </div>
+    <div class="card frag"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> <b>نکتهٔ تدریس:</b> خداوند آنچه در آسمان‌ها و زمین است برای انسان آفریده و توانایی بهره‌مندی از آنها را در وجود او قرار داده است؛ اینها نشان می‌دهد خداوند متعال انسان را <span class="hl-g"><b>گرامی</b></span> داشته و در نظام هستی <b>جایگاه ویژه‌ای</b> برای او قائل شده است. <span class="src dark" style="margin:0">برگرفته از سورهٔ لقمان، آیهٔ ۲۰</span></div>
+  </div>
+</section>
+
+<!-- ══════════ ۴ | قرائت روم ══════════ -->
+<section class="slide" data-title="قرائت ۱ | فطرت الهی (روم ۳۰)" data-icon="i-book-open">
+  <div class="slide-inner">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-book-open"/></svg> جلسهٔ اول ـ قرائت (صفحهٔ ۱۳) | آیات را به دقت و زیبا قرائت کنید</span>
+    <h2 class="title rise" style="--d:.08s">سرشتی که خدا <span class="grad-text">در ما نهاده</span></h2>
+    <div class="verse-box rise" style="--d:.18s">
+      <p class="verse">فَأَقِمْ وَجْهَكَ لِلدِّينِ حَنِيفًا ۚ فِطْرَتَ اللَّهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا ۚ لَا تَبْدِيلَ لِخَلْقِ اللَّهِ ۚ ذَٰلِكَ الدِّينُ الْقَيِّمُ وَلَٰكِنَّ أَكْثَرَ النَّاسِ لَا يَعْلَمُونَ <span class="ayah-num">۳۰</span></p>
+      <div style="text-align:center"><span class="src">سورهٔ روم، آیهٔ ۳۰</span></div>
+    </div>
+    <div class="tarjome frag"><span class="lbl">ترجمه (متن کتاب):</span>
+      روی خود را حق‌گرایانه به سوی دین خدا قرار ده؛ همان سرشتی که خدا مردم را بر آن آفرید. آفرینش خدا دستخوش تبدیل و تغییر نمی‌شود؛ این همان دین استوار و پابرجاست، گرچه اکثر مردم نمی‌دانند.</div>
+    <div class="card frag"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg> <b>کلمهٔ کلیدی آیه: «فِطْرَت»</b> ـ یعنی دین خدا و خداجویی، چیزی تحمیلی و بیگانه با ما نیست؛ در <span class="hl-g"><b>سرشت و آفرینش</b></span> همهٔ انسان‌ها قرار داده شده و <b>تغییرناپذیر</b> است. این آیه را به خاطر بسپارید؛ تا چند اسلاید دیگر به سراغش برمی‌گردیم!</div>
+  </div>
+</section>
+
+<!-- ══════════ ۵ | قرائت آل‌عمران ══════════ -->
+<section class="slide" data-title="قرائت ۲ | خردمندان (آل‌عمران ۱۹۰ـ۱۹۱)" data-icon="i-star">
+  <div class="slide-inner">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg> جلسهٔ اول ـ قرائت (صفحهٔ ۱۳)</span>
+    <h2 class="title rise" style="--d:.08s">نشانه‌هایی برای <span class="grad-text">خردمندان</span></h2>
+    <div class="verse-box rise" style="--d:.18s">
+      <p class="verse">إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ <span class="ayah-num">۱۹۰</span><br>
+      الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ <span class="ayah-num">۱۹۱</span></p>
+      <div style="text-align:center"><span class="src">سورهٔ آل‌عمران، آیات ۱۹۰ و ۱۹۱</span></div>
+    </div>
+    <div class="tarjome frag"><span class="lbl">ترجمه (متن کتاب):</span>
+      در آفرینش آسمان‌ها و زمین و آمد و شد شب و روز، نشانه‌هایی برای خردمندان است؛ همانان که خدا را یاد می‌کنند چه ایستاده و چه نشسته و چه خوابیده بر پهلوهایشان و تفکر می‌کنند در آفرینش آسمان‌ها و زمین [و می‌گویند] پروردگارا، اینها را بیهوده نیافریده‌ای؛ منزّهی تو، ما را از عذاب آتش در امان بدار.</div>
+    <div class="chips frag">
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> «أُولِي الْأَلْبَاب» = خردمندان و صاحبان عقل</span>
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> یاد خدا در همه حال</span>
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> تفکر در آفرینش</span>
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg> جهان، بیهوده آفریده نشده</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۶ | قرائت شمس ══════════ -->
+<section class="slide" data-title="قرائت ۳ | الهام خیر و شر (شمس ۷ـ۸)" data-icon="i-sun">
+  <div class="slide-inner">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg> جلسهٔ اول ـ قرائت (صفحهٔ ۱۳)</span>
+    <h2 class="title rise" style="--d:.08s">خدا خوبی و بدی را به ما <span class="grad-text">الهام کرده</span></h2>
+    <div class="verse-box rise" style="--d:.18s">
+      <p class="verse">وَنَفْسٍ وَمَا سَوَّاهَا <span class="ayah-num">۷</span> &nbsp; فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا <span class="ayah-num">۸</span></p>
+      <div style="text-align:center"><span class="src">سورهٔ شمس، آیات ۷ و ۸</span></div>
+    </div>
+    <div class="tarjome frag"><span class="lbl">ترجمه (متن کتاب):</span>
+      سوگند به نفس و آن‌که سامانش داد؛ آن‌گاه بدکاری و تقوایش را به او الهام کرد.</div>
+    <div class="vs-wrap frag">
+      <div class="mini-card tone-bad"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-slash"/></svg></span><h3>«فُجُورَهَا»</h3><p>شناخت بدکاری‌ها و گناهان، در نهاد ما گذاشته شده است.</p></div>
+      <div class="vs">و</div>
+      <div class="mini-card tone-good"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><h3>«تَقْوَاهَا»</h3><p>شناخت راه تقوا و پرهیزگاری هم به ما الهام شده است.</p></div>
+    </div>
+    <p class="foot-note frag" style="text-align:center"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> پانویس کتاب: «با این‌که این آیات در درس اول هم آمده، اما با توجه به اهمیت آنها و کاربردی که در این درس دارند، تکرار شده‌اند.»</p>
+  </div>
+</section>
+
+<!-- ══════════ ۷ | سرمایه‌ها در یک نگاه ══════════ -->
+<section class="slide" data-title="سرمایه‌های انسان در یک نگاه" data-icon="i-gem">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-gem"/></svg> صفحات ۱۴ تا ۱۶ کتاب ـ سرمایه‌های انسان</span>
+    <h2 class="title rise" style="--d:.08s">خدا برای پرواز، چه <span class="grad-text">سرمایه‌هایی</span> به ما داده؟</h2>
+    <p class="lead rise" style="--d:.16s">خداوند متعال برای این‌که انسان بتواند در مسیر رشد و کمال خود حرکت کند و به هدف خلقت، یعنی تقرّب به خدا دست یابد، سرمایه‌هایی در اختیارش قرار داده است. روی هر کارت کلیک کنید تا به اسلایدش برویم:</p>
+    <div class="grid g3">
+      <button class="mini-card frag" style="text-align:right" onclick="goTo(7,true)"><span class="num-badge">۱</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg></span><h3>عقل و تفکر</h3><p>تشخیص راه درست از غلط و دوری از جهل</p></button>
+      <button class="mini-card frag" style="text-align:right" onclick="goTo(8,true)"><span class="num-badge">۲</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg></span><h3>اختیار و اراده</h3><p>انتخاب سرنوشت خویش؛ رستگاری یا شقاوت</p></button>
+      <button class="mini-card frag" style="text-align:right" onclick="goTo(9,true)"><span class="num-badge">۳</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></span><h3>سرشت خدا‌آشنا</h3><p>فطرت خداشناس و احساس محبت خدا در دل</p></button>
+      <button class="mini-card frag" style="text-align:right" onclick="goTo(11,true)"><span class="num-badge">۴</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg></span><h3>گرایش به نیکی</h3><p>شناخت خیر و خوبی و بیزاری از بدی و زشتی</p></button>
+      <button class="mini-card frag" style="text-align:right" onclick="goTo(12,true)"><span class="num-badge">۵</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></span><h3>وجدان (نفس لوّامه)</h3><p>سرزنش در برابر گناه و اندیشهٔ جبران آن</p></button>
+      <button class="mini-card frag" style="text-align:right" onclick="goTo(13,true)"><span class="num-badge">۶</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-book-open"/></svg></span><h3>راهنمایان الهی</h3><p>پیامبران و کتاب راهنما؛ اصل نبوّت</p></button>
+    </div>
+    <div class="card frag" style="text-align:center"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg> <b>تشبیه زیبای درس:</b> این سرمایه‌ها مثل «بال‌های پرواز» انسان‌اند؛ هرچه بال‌ها قوی‌تر، پرواز به سوی هدف بلندتر!</div>
+  </div>
+</section>
+
+<!-- ══════════ ۸ | سرمایه ۱ عقل ══════════ -->
+<section class="slide" data-title="سرمایهٔ ۱ | عقل و تفکر" data-icon="i-bulb">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> سرمایهٔ ۱ از ۶ ـ صفحهٔ ۱۴</span>
+    <h2 class="title rise" style="--d:.08s">نیروی <span class="grad-text">اندیشه و تفکر</span></h2>
+    <div class="book-q rise" style="--d:.16s"><span class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> متن کتاب:</span> «پروردگار، به ما نیرویی عنایت کرده تا با آن بیندیشیم و مسیر درست زندگی را از راه‌های غلط تشخیص دهیم، حقایق را دریابیم و از جهل و نادانی دور شویم.»</div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">الف</span>نام این توانایی چیست؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span><b>عقل</b>؛ یعنی قدرت تفکر و اندیشه (تعقّل).</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ب</span>کدام آیهٔ ابتدای درس به این توانایی اشاره کرده است؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> آیات <b>۱۹۰ و ۱۹۱ سورهٔ آل‌عمران</b>: «إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ... لَآيَاتٍ لِّأُولِي الْأَلْبَابِ» که از خردمندان و تفکر آنان در آفرینش سخن می‌گوید.</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ج</span>دو پیام از ترجمهٔ این آیه استخراج کنید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> ۱) آفرینش آسمان‌ها و زمین و آمد و شد شب و روز، <b>نشانه‌هایی برای خردمندان</b> و اهل تفکر است و بر آفرینندهٔ جهان دلالت می‌کند. ۲) خردمندان با تفکر در نظام آفرینش به <b>هدفمند بودن جهان</b> پی می‌برند: «پروردگارا! اینها را بیهوده نیافریده‌ای» و در همه حال به یاد خدا هستند.</div></div>
+      </div>
+  </div>
+</section>
+
+<!-- ══════════ ۹ | سرمایه ۲ اختیار ══════════ -->
+<section class="slide" data-title="سرمایهٔ ۲ | اختیار و اراده" data-icon="i-compass">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg> سرمایهٔ ۲ از ۶ ـ صفحهٔ ۱۴</span>
+    <h2 class="title rise" style="--d:.08s">صاحبِ <span class="grad-text">اراده و اختیار</span></h2>
+    <div class="book-q rise" style="--d:.16s"><span class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> متن کتاب:</span> «خداوند، ما را صاحب اراده آفرید و مسئول سرنوشت خویش قرار داد. سپس راه رستگاری و راه شقاوت را به ما معرفی کرد تا با تشخیص خود راه رستگاری را برگزینیم و از شقاوت دوری کنیم. با توجه به همین ویژگی است که خدا می‌فرماید:»</div>
+    <div class="verse-box frag">
+      <p class="verse">إِنَّا هَدَيْنَاهُ السَّبِيلَ إِمَّا شَاكِرًا وَإِمَّا كَفُورًا <span class="ayah-num">۳</span></p>
+      <p style="text-align:center; line-height:2">ما راه را به او نشان دادیم؛ یا سپاسگزار خواهد بود یا ناسپاس.</p>
+      <div style="text-align:center"><span class="src">سورهٔ انسان، آیهٔ ۳</span></div>
+    </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">الف</span>برای این ویژگی، نام مناسب انتخاب کنید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span><b>قدرت اختیار</b> (اراده و قدرت انتخاب و تصمیم‌گیری).</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ب</span>پیام مهم این آیه چیست؟ <small style="color:var(--ink2)">(ادامه در صفحهٔ ۱۵)</small></div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> خداوند راه هدایت و رستگاری را به انسان <b>نشان داده</b> است، اما او را مجبور نکرده؛ انسان با اختیار خود یا راه سپاسگزاری و اطاعت (رستگاری) را برمی‌گزیند یا راه ناسپاسی و کفران (شقاوت) را؛ پس هرکس <b>مسئول سرنوشت و کارهای خویش</b> است.</div></div>
+      </div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۰ | سرمایه ۳ سرشت خدا‌آشنا ══════════ -->
+<section class="slide" data-title="سرمایهٔ ۳ | سرشت خدا‌آشنا" data-icon="i-heart">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> سرمایهٔ ۳ از ۶ ـ صفحهٔ ۱۵</span>
+    <h2 class="title rise" style="--d:.08s">خدا را در دلِ خود <span class="grad-text">می‌یابیم</span></h2>
+    <div class="book-q rise" style="--d:.16s"><span class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> متن کتاب:</span> «هرکس در خود می‌نگرد و یا به تماشای جهان می‌نشیند، خدا را می‌یابد و محبتش را در دل احساس می‌کند.» امیرمؤمنان علی علیه‌السلام می‌فرماید: <b>«هیچ چیزی را مشاهده نکردم، مگر اینکه خدا را قبل از آن، بعد از آن و با آن دیدم.»</b> <small>(علم الیقین، ملا محسن فیض کاشانی)</small> گاهی غفلت‌ها سبب دوری ما از او و فراموشی یاد او می‌شود، ولی زمانی که به خود باز می‌گردیم، او را در کنار خود می‌یابیم و می‌گوییم:</div>
+    <div class="poem frag">دوست نزدیک‌تر از من به من است &nbsp;•&nbsp; وین عجب‌تر که من از وی دورم<br>چه کنم با که توان گفت که او &nbsp;•&nbsp; در کنار من و من مهجورم<small><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg> سعدی ـ گلستان</small></div>
+  </div>
+</section>
+
+<!-- پرسش‌های سرمایهٔ ۳ -->
+<section class="slide" data-title="پرسش‌های سرمایهٔ ۳ (صفحهٔ ۱۵)" data-icon="i-help">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg> پرسش‌های داخل متن ـ سرمایهٔ ۳</span>
+    <h2 class="title rise" style="--d:.08s">حالا نوبتِ <span class="grad-text">فکر کردن</span> شماست</h2>
+    <div class="verse-box rise" style="--d:.16s">
+      <p class="verse" style="font-size:clamp(1.05rem,2.2vw,1.45rem)">فَأَقِمْ وَجْهَكَ لِلدِّينِ حَنِيفًا ۚ فِطْرَتَ اللَّهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا <span class="ayah-num">۳۰</span></p>
+      <div style="text-align:center"><span class="src">یادآوری آیهٔ قرائت ـ سورهٔ روم، آیهٔ ۳۰</span></div>
+    </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">الف</span>برای این ویژگی، نام مناسب انتخاب کنید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span><b>سرشت خدا‌آشنا</b>؛ یعنی فطرت خداشناس و خداجوی انسان.</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ب</span>کدام آیه به این ویژگی اشاره می‌کند؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> آیهٔ <b>۳۰ سورهٔ روم</b>: «فِطْرَتَ اللَّهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا» (همان آیهٔ قرائت آغاز درس).</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ج</span>دو پیام از ترجمهٔ این آیه استخراج کنید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> ۱) خداوند سرشت همهٔ انسان‌ها را بر پایهٔ <b>شناخت خدا و گرایش به دین</b> آفریده است؛ پس دین با فطرت انسان هماهنگ است. ۲) در آفرینش خدا <b>تغییر و تبدیل راه ندارد</b> و این همان دین استوار و پابرجاست، گرچه بسیاری از مردم این حقیقت را نمی‌دانند.</div></div>
+      </div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۱ | سرمایه ۴ گرایش به نیکی ══════════ -->
+<section class="slide" data-title="سرمایهٔ ۴ | گرایش به نیکی" data-icon="i-scale">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg> سرمایهٔ ۴ از ۶ ـ صفحهٔ ۱۵</span>
+    <h2 class="title rise" style="--d:.08s">خوبی را دوست داریم، از بدی <span class="grad-text">بیزاریم</span></h2>
+    <div class="book-q rise" style="--d:.16s"><span class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> متن کتاب:</span> «خدای متعال، شناخت خیر و نیکی و گرایش به آن و شناخت بدی و زشتی و بیزاری از آن را در وجود ما قرار داد، تا به خیر و نیکی رو آوریم و از گناه و زشتی بپرهیزیم.»</div>
+    <div class="card frag">
+      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:7px"><b><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> دوست داریم:</b><span class="chip good">صداقت</span><span class="chip good">عزّت نفس</span><span class="chip good">عدالت</span></div>
+      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap"><b><svg class="ic" aria-hidden="true"><use href="#i-slash"/></svg> بیزاریم:</b><span class="chip bad">دورویی</span><span class="chip bad">حقارت نفس</span><span class="chip bad">ریا</span><span class="chip bad">ظلم</span></div>
+    </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">الف</span>برای این ویژگی، نام مناسب انتخاب کنید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span><b>گرایش فطری انسان به خیر و نیکی</b> (شناخت خوبی و بدی و میل درونی به خوبی‌ها).</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ب</span>کدام آیه به این ویژگی اشاره می‌کند؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> آیات <b>۷ و ۸ سورهٔ شمس</b> (که در درس اول آمده و در قرائت این درس، صفحهٔ ۱۳، تکرار شده است): «وَنَفْسٍ وَمَا سَوَّاهَا ۝ فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا».</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ج</span>یک پیام از ترجمهٔ این آیه استخراج کنید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> خداوند پس از آن‌که نفس انسان را سامان داد، <b>شناخت بدکاری (فجور) و تقوا</b> را به او الهام کرد؛ یعنی تشخیص خوبی و بدی در نهاد انسان نهاده شده تا خودش راه تقوا و نیکی را برگزیند.</div></div>
+      </div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۲ | سرمایه ۵ وجدان ══════════ -->
+<section class="slide" data-title="سرمایهٔ ۵ | وجدان (نفس لوّامه)" data-icon="i-bell">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg> سرمایهٔ ۵ از ۶ ـ صفحات ۱۵ و ۱۶</span>
+    <h2 class="title rise" style="--d:.08s">زنگِ بیدارباشِ درون: <span class="grad-text">نفسِ لوّامه</span></h2>
+    <div class="book-q rise" style="--d:.16s"><span class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> متن کتاب:</span> «عاملی در وجود انسان هست که در مقابل گناه و زشتی واکنش نشان می‌دهد و اگر انسان به گناه آلوده شود، خود را سرزنش و ملامت می‌کند و در اندیشهٔ جبران آن برمی‌آید. قرآن کریم، این عامل درونی را <b>«نفس لوّامه»</b>، یعنی نفس سرزنشگر، نامیده و به آن سوگند خورده است.»</div>
+    <div class="verse-box frag">
+      <p class="verse">وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ <span class="ayah-num">۲</span></p>
+      <p style="text-align:center; line-height:2">و سوگند به نفس ملامت‌کننده</p>
+      <div style="text-align:center"><span class="src">سورهٔ قیامت، آیهٔ ۲</span></div>
+    </div>
+    <div class="flow frag">
+      <div class="step"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg></span>انسان مرتکب<br>گناه می‌شود</div><div class="sep"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></span>نفس لوّامه او را<br>سرزنش می‌کند</div><div class="sep"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-return"/></svg></span>در اندیشهٔ جبران<br>و توبه برمی‌آید</div>
+    </div>
+    <div class="grid g2">
+    <div class="qa frag"><div class="qa-head"><span class="qtag">الف</span>نام دیگر این عامل درونی را بنویسید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span><b>وجدان</b> (وجدان اخلاقی).</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ب</span>یک پیام از ترجمهٔ این آیه استخراج کنید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> نفس سرزنشگر (وجدان) نزد خدا آن‌قدر <b>ارزشمند و مهم</b> است که خداوند به آن سوگند یاد کرده است؛ چون پس از هر گناه و خطا، انسان را بیدار و ملامت می‌کند و او را به جبران و بازگشت وامی‌دارد.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۳ | سرمایه ۶ راهنمایان الهی ══════════ -->
+<section class="slide" data-title="سرمایهٔ ۶ | راهنمایان الهی" data-icon="i-book-open">
+  <div class="slide-inner">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-book-open"/></svg> سرمایهٔ ۶ از ۶ ـ صفحهٔ ۱۶</span>
+    <h2 class="title rise" style="--d:.08s">خدا ما را <span class="grad-text">تنها نگذاشته</span> است</h2>
+    <div class="book-q rise" style="--d:.16s"><span class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> متن کتاب:</span> «علاوه بر این سرمایه‌های بزرگ که خداوند در درون خود انسان قرار داده، انسان را تنها نگذاشته و <b>راهنمایان الهی را همراه با کتاب راهنما</b> برای او فرستاده و راه کسب سعادت را به وی نشان داده است.»</div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg></span>کدام یک از اصول دین به این راهنمایی اشاره می‌کند؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> اصل <b>«نبوّت»</b>؛ یعنی فرستادن پیامبران الهی همراه با کتاب آسمانی برای هدایت انسان.</div></div>
+      </div>
+    <div class="card frag">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg> جمع‌بندی ۶ سرمایه (برای امتحان!)</h3>
+      <div class="chips" style="margin-top:8px">
+        <span class="chip">۱ <svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> عقل و تفکر</span><span class="chip">۲ <svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg> اختیار و اراده</span><span class="chip">۳ <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> سرشت خدا‌آشنا</span>
+        <span class="chip">۴ <svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg> گرایش به نیکی</span><span class="chip">۵ <svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg> وجدان</span><span class="chip">۶ <svg class="ic" aria-hidden="true"><use href="#i-book-open"/></svg> راهنمایان الهی (نبوّت)</span>
+      </div>
+      <p style="margin-top:8px">پنج سرمایهٔ اول <b>درونی</b> هستند و سرمایهٔ ششم، راهنمای <b>بیرونی</b> و مکمّل آنهاست.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۴ | تناسب سرمایه و هدف ══════════ -->
+<section class="slide" data-title="تناسب میان سرمایه‌ها و هدف" data-icon="i-target">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg> صفحهٔ ۱۶ کتاب</span>
+    <h2 class="title rise" style="--d:.08s">تناسب میان <span class="grad-text">سرمایه‌ها و هدفِ</span> زندگی</h2>
+    <div class="card rise" style="--d:.16s; text-align:center; font-size:clamp(1.05rem,2.3vw,1.3rem)">
+      <svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg> «سرمایه‌ها و توانایی‌های هر موجودی با <b>هدف</b> او تناسب دارد و نمی‌شود که خداوند یک توانمندی و سرمایهٔ بزرگ به مخلوقی بدهد ولی برای او هدف کوچکی تعریف کند!»</div>
+    <div class="grid g2">
+      <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-paw"/></svg></span><h3>اگر هدف انسان مثل حیوانات بود…</h3><p>فقط خوردن، آشامیدن و تولید مثل؛ آنگاه چنین قدرت فکری‌ای لازم نبود!</p></div>
+      <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></span><h3>اما قدرت فکر انسان…</h3><p>هزاران رشته و شاخهٔ دانش، هزاران شاخهٔ هنر، هزاران فکر در سیاست و اخلاق و معنویت را ابداع می‌کند و پیش می‌برد.</p></div>
+    </div>
+    <div class="verse-box frag" style="text-align:center">
+      <p class="big-quote" style="color:#fff">پس این قدرت فکری برای رسیدن به حقایقی بسیار فراتر از نیازهای بدنی و حیوانی است!<br>هدف ما باید به وسعتِ سرمایه‌هایمان باشد <svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></p>
+    </div>
+    <div class="card frag"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg> <b>پرسش کتاب:</b> «پس چگونه می‌توانیم به کاری که در حدّ و اندازهٔ حیوانات است، قانع شویم و در همان سطح بمانیم؟»</div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۵ | انسان و حیوان ══════════ -->
+<section class="slide" data-title="تفاوت انسان و حیوان؛ بُعد روحی" data-icon="i-paw">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-paw"/></svg> صفحات ۱۶ و ۱۷ کتاب</span>
+    <h2 class="title rise" style="--d:.08s">ما را چه چیزی از حیوان <span class="grad-text">ممتاز می‌کند؟</span></h2>
+    <div class="vs-wrap">
+      <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-paw"/></svg></span><h3>حیوان</h3><p>همان غذایی را که دیروز و پریروز می‌خورد و اجدادش می‌خوردند، امروز هم می‌خورد. غذاخوردن او به طبیعت آسیبی نمی‌رساند.</p></div>
+      <div class="vs frag">VS</div>
+      <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span><h3>انسان</h3><p>از همان روز خلقت تا امروز هزاران نوع غذا کشف و ابداع کرده و به آشپزخانه‌اش آورده؛ اما با روش پیش‌گرفته، صدها آسیب هم به طبیعت وارد کرده است!</p></div>
+    </div>
+    <div class="card frag"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> پس این تفاوتِ غذاخوردن، نشانهٔ برتری انسان بر حیوان نیست؛ بلکه اگر دغدغهٔ انسان فقط بهتر کردن زندگی مادی و بدنی باشد، <b>مسلّماً از حیوان پایین‌تر است</b>.</div>
+    <div class="card frag" style="border:2.5px solid #99f6e4; background:linear-gradient(150deg,#f0fdfa,#eff6ff)">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> بُعد روحی و انسانی ما</h3>
+      <p>آنچه ما را از حیوان ممتاز می‌کند، <b>بُعد روحی و انسانی</b> ماست که معنای <b>آزادگی، عدالت، شجاعت</b> و نظایر اینها را می‌فهمد. خدا، <b>عقل</b> را با این عظمت در اختیار ما قرار داده است و همین عقل است که با دوراندیشی، ما را از خوشی‌های زودگذر منع می‌کند؛ و همان <b>وجدان</b> است که با محکمه‌اش ما را از راحت‌طلبی‌های حیوانی بازمی‌دارد.</p>
+      <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-paw"/></svg> اگر بنا بر خوردن و خوابیدن باشد، حیوانات از ما خوش‌تر زندگی می‌کنند! چون نه عقل دارند که مانع آنان باشد و نه وجدانی که گاه و بی‌گاه آنان را سرزنش کند.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۶ | داستان گنج ══════════ -->
+<section class="slide" data-title="بیشتر بدانیم | در جست‌وجوی گنج" data-icon="i-gem">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-gem"/></svg> بیشتر بدانیم ـ صفحهٔ ۱۷ (مولوی، مثنوی معنوی، دفتر ششم)</span>
+    <h2 class="title rise" style="--d:.08s">در جست‌وجویِ <span class="grad-text">گنج</span></h2>
+    <div class="flow">
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span>شخصی سال‌ها در پی گنج، روزها زمین را می‌کند و شب‌ها از خدا یاری می‌خواست.</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg></span>هاتفی در خواب گفت: تیر را در کمان بگذار؛ هر کجا افتاد، گنج همان‌جاست!</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span>مرد با تمام قوت تیر انداخت و هر جا افتاد کند… ولی از گنج خبری نبود. اندوهگین شد.</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-volume"/></svg></span>هاتف دوباره گفت: گفتم تیر را در کمان «بگذار»؛ نگفتم به قوت «بکش»!</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-gem"/></svg></span>تیر را رها کرد؛ پیش پای خودش افتاد! گنجِ سال‌ها جست‌وجو، کنار خودش بود.</div>
+    </div>
+    <div class="poem frag">ای کمان و تیرها برساخته &nbsp;•&nbsp; گنج نزدیک و تو دور انداخته<small><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg> مولوی ـ مثنوی معنوی</small></div>
+    <div class="card frag" style="text-align:center"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg> <b>پیام داستان برای درس ما:</b> گنجِ واقعی ـ یعنی همان سرمایه‌های بزرگ الهی ـ <span class="hl">در درون خود ما</span> و بسیار نزدیک است؛ افسوس که گاهی در دوردست‌ها دنبالش می‌گردیم!</div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۷ | اندیشه و تحقیق ص۱۷ ══════════ -->
+<section class="slide" data-title="اندیشه و تحقیق (صفحهٔ ۱۷)" data-icon="i-help">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg> اندیشه و تحقیق ـ انتهای جلسهٔ اول (صفحهٔ ۱۷)</span>
+    <h2 class="title rise" style="--d:.08s">کمی <span class="grad-text">عمیق‌تر</span> فکر کنیم</h2>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">۱</span>چرا با این‌که همهٔ انسان‌ها دارای قوّهٔ عقل هستند، همه عاقلانه رفتار نمی‌کنند؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> داشتن عقل به‌تنهایی کافی نیست؛ عقل یک <b>قوّه و استعداد</b> است که باید به کار گرفته و تقویت شود. بسیاری از مردم عقل خود را پرورش نمی‌دهند و رشد عقلی‌شان کم است. برخی نیز با این‌که می‌دانند کاری درست نیست، تحت تأثیر <b>نفس امّاره، غفلت، لذت‌های زودگذر و تقلید کورکورانه</b> همان کار را انجام می‌دهند و وسوسهٔ شیطان هم آنان را از به‌کارگیری عقل بازمی‌دارد.</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">۲</span>برای رشد عقل و رسیدن به صفت عاقل، چه پیشنهادهایی دارید؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span>
+        تفکر و تدبّر پیوسته در آفرینش آسمان و زمین و در آیات قرآن؛ مطالعه و تمرین فعالیت‌های فکری و کسب مهارت‌های تفکر؛ خوب گوش دادن به سخن دیگران و <b>پیش‌داوری نکردن</b>؛ تأمل در سخن‌ها و یافتن دلیل برای قبول یا ردّ آنها؛ پرورش تقوا و مهار نفس امّاره؛ محاسبهٔ خویشتن و عمل کردن به ندای وجدان و دوری از غفلت و هم‌نشینی‌های گمراه‌کننده.</div></div>
+      </div>
+    <div class="card frag"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg> <b>فعالیت کلاسی:</b> هر گروه یک پیشنهاد عملی دیگر برای «رشد عقل» بنویسد و برای کلاس ارائه کند.</div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۸ | قرائت بقره ۱۶۸-۱۶۹ ══════════ -->
+<section class="slide" data-title="قرائت جلسهٔ دوم | گام‌های شیطان" data-icon="i-foot">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-foot"/></svg> جلسهٔ دوم ـ قرائت (صفحهٔ ۱۸)</span>
+    <h2 class="title rise" style="--d:.08s">از گام‌های شیطان <span class="grad-text">پیروی نکنید!</span></h2>
+    <div class="verse-box rise" style="--d:.16s">
+      <p class="verse">يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ ۚ إِنَّهُ لَكُمْ عَدُوٌّ مُّبِينٌ <span class="ayah-num">۱۶۸</span><br>
+      إِنَّمَا يَأْمُرُكُم بِالسُّوءِ وَالْفَحْشَاءِ وَأَن تَقُولُوا عَلَى اللَّهِ مَا لَا تَعْلَمُونَ <span class="ayah-num">۱۶۹</span></p>
+      <div style="text-align:center"><span class="src">سورهٔ بقره، آیات ۱۶۸ و ۱۶۹</span></div>
+    </div>
+    <div class="tarjome frag"><span class="lbl">ترجمه (متن کتاب):</span>
+      ای مردم، حلال و پاکیزه‌های زمین را بخورید و تابع گام‌های شیطان نباشید، چرا که او دشمن واقعی شماست. او حتماً شما را به بدی و زشتی وامی‌دارد و بر آن می‌دارد که به خدا نسبت دهید چیزهایی را که علمی به آن ندارید.</div>
+    <div class="grid g2 frag">
+      <div class="mini-card"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-foot"/></svg></span><h3>«خُطُوَاتِ الشَّيْطَان»</h3><p>شیطان قدم‌به‌قدم و گام‌به‌گام انسان را می‌کشاند؛ نه یک‌باره!</p></div>
+      <div class="mini-card"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span><h3>فرمان‌های او</h3><p>فقط سه چیز: بدی، زشتی (فحشاء) و نسبت دادن سخن نادانسته به خدا.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۱۹ | قرائت بقره ۱۷۰-۱۷۱ ══════════ -->
+<section class="slide" data-title="قرائت | تقلید کورکورانه" data-icon="i-eye-off">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-eye-off"/></svg> جلسهٔ دوم ـ قرائت (صفحهٔ ۱۸)</span>
+    <h2 class="title rise" style="--d:.08s">تقلید کورکورانه؛ تعطیلیِ <span class="grad-text">عقل</span></h2>
+    <div class="verse-box rise" style="--d:.16s">
+      <p class="verse">وَإِذَا قِيلَ لَهُمُ اتَّبِعُوا مَا أَنزَلَ اللَّهُ قَالُوا بَلْ نَتَّبِعُ مَا أَلْفَيْنَا عَلَيْهِ آبَاءَنَا ۗ أَوَلَوْ كَانَ آبَاؤُهُمْ لَا يَعْقِلُونَ شَيْئًا وَلَا يَهْتَدُونَ <span class="ayah-num">۱۷۰</span><br>
+      وَمَثَلُ الَّذِينَ كَفَرُوا كَمَثَلِ الَّذِي يَنْعِقُ بِمَا لَا يَسْمَعُ إِلَّا دُعَاءً وَنِدَاءً ۚ صُمٌّ بُكْمٌ عُمْيٌ فَهُمْ لَا يَعْقِلُونَ <span class="ayah-num">۱۷۱</span></p>
+      <div style="text-align:center"><span class="src">سورهٔ بقره، آیات ۱۷۰ و ۱۷۱</span></div>
+    </div>
+    <div class="tarjome frag"><span class="lbl">ترجمه (متن کتاب):</span>
+      و زمانی که به آنها گفته شود تبعیت کنید از آنچه خدا نازل کرده، گویند خیر، ما پیروی می‌کنیم آنچه را که از نیاکانمان یافته‌ایم؛ گرچه نیاکانشان چیزی نیندیشیده و راهی نیافته باشند. داستان کسانی که کفر ورزیدند، همانند آن شخصی است که تنها صدایی می‌شنود [و چیزی از آن نمی‌فهمد]؛ اینان ناشنوا و گنگ و نابینای واقعی‌اند و از همین رو اهل تعقّل کردن نیستند.</div>
+    <div class="card frag"><svg class="ic" aria-hidden="true"><use href="#i-link"/></svg> <b>ارتباط با درس:</b> این آیات دقیقاً پاسخِ «چرا همه عاقلانه رفتار نمی‌کنند؟» است؛ چون به جای به‌کارگیری سرمایهٔ عقل، راه <span class="hl-p"><b>تقلید از گذشتگان بدون اندیشه</b></span> را انتخاب می‌کنند.</div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۰ | موانع در یک نگاه ══════════ -->
+<section class="slide" data-title="موانع راه در یک نگاه" data-icon="i-alert">
+  <div class="slide-inner">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> صفحهٔ ۱۹ کتاب ـ موانع راه</span>
+    <h2 class="title rise" style="--d:.08s">مسیر پرواز، صاف و هموار نیست!</h2>
+    <p class="lead rise" style="--d:.16s">«مسیر رفتن به سوی خدا و کسب کمالات و خوبی‌ها صاف و هموار نیست. این مسیر با موانعی جدّی، هم در <b>درونِ ما</b> و هم در <b>بیرونِ ما</b> روبه‌روست.»</p>
+    <div class="vs-wrap">
+      <div class="mini-card frag"><span class="num-badge">۱</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg></span><h3>مانع درونی: نفس امّاره</h3><p>بُعد بدنی و حیوانی انسان که او را به لذت‌های نادرست و گناه می‌کشاند؛ «نفسی که بسیار به بدی فرامی‌خواند».</p></div>
+      <div class="vs frag">+</div>
+      <div class="mini-card frag"><span class="num-badge">۲</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg></span><h3>مانع بیرونی: شیطان</h3><p>دشمنی که سوگند خورده فرزندان آدم را فریب دهد و از رسیدن به آرمان‌های انسانی و اهداف برتر زندگی بازدارد.</p></div>
+    </div>
+    <div class="card frag" style="text-align:center"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> اما نگران نباشیم! در برابر همین دو مانع، خدا <b>عقل، وجدان، فطرت و راهنمایان الهی</b> را به ما داده است.</div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۱ | نفس اماره ══════════ -->
+<section class="slide" data-title="مانع درونی | نفس امّاره" data-icon="i-flame">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg> مانع اول ـ صفحهٔ ۱۹</span>
+    <h2 class="title rise" style="--d:.08s">نفسِ امّاره؛ دشمنِ <span class="grad-text">درونِ خانه</span></h2>
+    <div class="book-q rise" style="--d:.16s"><span class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> متن کتاب:</span> «مانع اول یک مانع درونی است که توجهش صرفاً به بُعد بدنی و حیوانی انسان است و از انسان می‌خواهد که با هر روشی که شده، درست یا نادرست، خود را به لذت‌های حیوانی برساند، هرچند که به ظلم و گناهان دیگر آلوده شود. این مانع را <b>«نفس امّارهٔ به بدی»</b>، یعنی نفسی که بسیار به بدی فرامی‌خواند، می‌نامند. این نام را حضرت یوسف علیه‌السلام آنگاه که در مقابل پادشاه مصر قرار گرفت و در آن لحظاتی که همه دانستند وی انسانی پاکدامن بوده است به کار برد و فرمود:»</div>
+    <div class="grid g2">
+      <div class="verse-box frag">
+      <p class="verse">إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي</p>
+      <p style="text-align:center; line-height:2">همانا که نفس به شدّت آدمی را به بدی می‌خواند، مگر این‌که خدا او را مورد لطف قرار دهد.</p>
+      <div style="text-align:center"><span class="src">سورهٔ یوسف، آیهٔ ۵۳</span></div>
+    </div>
+    <div class="card frag" style="text-align:center; border:2.5px solid #bae6fd">
+      <p>امیرالمؤمنین علی علیه‌السلام نیز دربارهٔ این نفس می‌فرماید:</p>
+      <p class="big-quote" style="color:#075985">«دشمن‌ترین دشمنِ تو، همان نفسی است که در درونِ توست»</p>
+      <small style="color:var(--ink2)">«أَعْدَىٰ عَدُوِّكَ نَفْسُكَ الَّتِي بَيْنَ جَنْبَيْكَ» ـ التحفة البیضاء، فیض کاشانی</small>
+      </div>
+    </div>
+    <div class="vs-wrap frag">
+      <div class="mini-card tone-bad"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg></span><h3>نفس امّاره</h3><p>قبل از گناه، انسان را به سوی بدی <b>هل می‌دهد</b>.</p></div>
+      <div class="vs">VS</div>
+      <div class="mini-card tone-good"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></span><h3>نفس لوّامه (وجدان)</h3><p>بعد از گناه، انسان را <b>سرزنش</b> و به جبران دعوت می‌کند.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۲ | شیطان + پرسش ص۲۰ ══════════ -->
+<section class="slide" data-title="مانع بیرونی | شیطان" data-icon="i-flame">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg> مانع دوم ـ صفحات ۱۹ و ۲۰</span>
+    <h2 class="title rise" style="--d:.08s">شیطان؛ فقط <span class="grad-text">وسوسه‌گر</span>، نه فرمانروا!</h2>
+    <div class="book-q rise" style="--d:.16s"><span class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> متن کتاب:</span> «مانع دوم، مانعی است که خود را برتر از آدمیان می‌پندارد و <b>سوگند</b> یاد کرده که فرزندان آدم را فریب دهد <small>(سورهٔ ص، آیهٔ ۸۲)</small> و از رسیدن به آرمان‌های انسانی و اهداف برتر زندگی بازدارد و سرگرم همین لذت‌های دنیایی کند. کاری که او با ما می‌کند، <b>وسوسه کردن</b> است. او راهی جز همین وسوسه کردن ندارد.» همین دشمن، در روز قیامت که فرصتی برای توبه باقی نمانده است، به کسانی که فریبشان داده می‌گوید: <small>(سورهٔ ابراهیم، آیهٔ ۲۲)</small></div>
+    <div class="card frag" style="background:#eff6ff; border:2px solid #bfdbfe; border-inline-start:7px solid var(--a1)">
+      <svg class="ic" aria-hidden="true"><use href="#i-message"/></svg> «خداوند به شما وعدهٔ حق داد؛ اما من به شما وعده‌ای دادم و خلاف آن عمل کردم. البته من بر شما <b>تسلطی نداشتم</b>؛ فقط شما را به گناه دعوت کردم. این خودتان بودید که دعوت مرا پذیرفتید. امروز خود را سرزنش کنید نه مرا. امروز نه من می‌توانم به شما کمکی کنم و نه شما می‌توانید مرا نجات دهید.»
+    </div>
+    <div class="card frag" style="text-align:center"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> <b>نکتهٔ کلیدی:</b> تنها ابزار شیطان «وسوسه و دعوت» است؛ تصمیم نهایی همیشه با <span class="hl"><b>اختیار خود انسان</b></span> است.</div>
+  </div>
+</section>
+
+<!-- پرسش‌های مانع بیرونی -->
+<section class="slide" data-title="پرسش‌های صفحهٔ ۲۰ (شیطان)" data-icon="i-help">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg> پرسش‌های داخل متن ـ صفحهٔ ۲۰</span>
+    <h2 class="title rise" style="--d:.08s">دربارهٔ این دشمن <span class="grad-text">پاسخ دهید</span></h2>
+    <div class="verse-box rise" style="--d:.16s">
+      <p class="verse" style="font-size:clamp(1.05rem,2.2vw,1.45rem)">وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ ۚ إِنَّهُ لَكُمْ عَدُوٌّ مُّبِينٌ <span class="ayah-num">۱۶۸</span></p>
+      <div style="text-align:center"><span class="src">یادآوری آیهٔ قرائت جلسهٔ دوم ـ سورهٔ بقره</span></div>
+    </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">الف</span>نام این دشمن چیست؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span><b>شیطان</b>.</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ب</span>کدام آیه به این دشمن اشاره می‌کند؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> آیات قرائت آغاز جلسهٔ دوم، یعنی آیات <b>۱۶۸ و ۱۶۹ سورهٔ بقره</b>: «وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ إِنَّهُ لَكُمْ عَدُوٌّ مُّبِينٌ»؛ و سخن روز قیامت او در آیهٔ <b>۲۲ سورهٔ ابراهیم</b> آمده است.</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">ج</span>دو پیام مهم از ترجمهٔ آن آیه استخراج کنید.</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> ۱) شیطان <b>دشمن آشکار</b> انسان است؛ نباید از گام‌ها و وسوسه‌های او پیروی کرد، چون فقط به بدی و زشتی فرمان می‌دهد و پیروی از او تنها به زیان خود انسان تمام می‌شود. ۲) شیطان بر انسان <b>سلطه و اجبار ندارد</b>؛ فقط دعوت و وسوسه می‌کند و این انسان است که با اختیار خود می‌پذیرد؛ پس مسئولیت گناه با خود اوست و در قیامت خود شیطان هم از یاری پیروانش ناتوان است.</div></div>
+      </div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۳ | پاسخ سؤالات شما ۱ ══════════ -->
+<section class="slide" data-title="پاسخ سؤالات شما ۱ | چرا شیطان؟" data-icon="i-help">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg> پاسخ سؤالات شما ـ صفحهٔ ۲۰</span>
+    <h2 class="title rise" style="--d:.08s">۱ـ چرا خدا شیطان را آفرید <span class="grad-text">تا انسان‌ها را گمراه کند؟</span></h2>
+    <div class="grid g2">
+      <div class="mini-card frag"><span class="num-badge">۱</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></span><h3>خدا «شیطانِ گمراه‌کننده» نیافرید!</h3>
+        <p>خداوند شیطان را شیطان نیافرید؛ او را مانند سایر مخلوقات آفرید تا خدا را عبادت نماید و پاداش آن را دریافت کند. او چون خدا را زیاد عبادت می‌کرد به مقام فرشتگان رسید و هزاران سال هم‌نشین آنان شد؛ اما عبادت‌های او نوعی <b>غرور</b> در وی به وجود آورد که در برابر فرمان خدا ایستاد و برای آدم سجده نکرد. پس از آن بود که از درگاه خداوند رانده شد و راه فریب انسان‌ها را در پیش گرفت. پس خداوند از همان اول موجودی به‌عنوان «شیطان» با صفت درونیِ پلید و شیطانی نیافرید؛ همچنان‌که فرعون را با صفت فرعونی و ستمگری خلق نکرده بود، بلکه او انسانی آفریده شد که شایستگی رشد و کمال داشت اما خودش با میل و اختیار خود، راه غلط را برگزید.</p></div>
+      <div class="col">
+      <div class="mini-card frag"><span class="num-badge">۲</span><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span><h3>شیطان مجبورمان نمی‌کند!</h3>
+        <p>شیطان هیچ‌کس را وادار و مجبور به گناه نمی‌کند؛ بلکه شیطان تنها انسان را <b>دعوت</b> به گناه می‌نماید و انسان می‌تواند در مقابل شیطان بایستد و او را ناامید کند؛ همان‌طور که بسیاری از انسان‌ها چنین می‌کنند.</p></div>
+      <div class="verse-box frag" style="text-align:center">
+      <p class="big-quote" style="color:#fff">آفریده شدن با «اختیار» یعنی: خودِ مخلوق، راهش را انتخاب می‌کند <svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۴ | پاسخ سؤالات شما ۲ ══════════ -->
+<section class="slide" data-title="پاسخ سؤالات شما ۲ | عبادت سلیقه‌ای؟" data-icon="i-heart">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> پاسخ سؤالات شما ـ صفحات ۲۰ و ۲۱</span>
+    <h2 class="title rise" style="--d:.08s">۲ـ «من هر طور بخواهم خدا را <span class="grad-text">عبادت می‌کنم»؟</span></h2>
+    <div class="card frag">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-message"/></svg> این حرف تازه نیست!</h3>
+      <p>بعضی‌ها فرارشان از دستورات خدا را پشت حرف‌هایی پنهان می‌کنند که به ظاهر زیباست؛ مثلاً: «من نماز نمی‌خوانم اما به مردم ظلم نمی‌کنم و دست آنها را می‌گیرم؛ دعای مردم برای من کافی است!» باید بدانیم این‌چنین حرف‌هایی تازه نیست. پیش از این، <b>شیطان</b> هم وقتی از فرمان خدا برای سجده کردن به حضرت آدم سرپیچی کرد، به همین شکل دلیل آورد و گفت: «اگر مرا از سجده بر آدم معاف داری تو را عبادتی خواهم کرد که هیچ‌کس نکرده باشد.» خداوند در پاسخش فرمود:</p>
+    </div>
+    <div class="verse-box frag" style="text-align:center">
+      <p class="big-quote" style="color:#fff">«می‌خواهم آن‌گونه عبادت شوم که خود می‌خواهم، نه آن‌گونه که تو می‌خواهی!»</p>
+      <span class="src">بحارالانوار، جلد ۱۱، ص ۱۴۱</span>
+    </div>
+  </div>
+</section>
+
+<!-- پاسخ سؤالات شما ۲ ـ ادامه -->
+<section class="slide" data-title="سه نکتهٔ مهم دربارهٔ عبادت" data-icon="i-bulb">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> ادامهٔ پاسخ سؤال ۲ ـ صفحهٔ ۲۱</span>
+    <h2 class="title rise" style="--d:.08s">سه نکتهٔ <span class="grad-text">مهم و کلیدی</span></h2>
+    <div class="grid g3">
+      <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></span><h3>معنای واقعی بندگی</h3><p>عبادت یعنی آن‌گونه که خدا می‌خواهد باشیم؛ کسی که معنای واقعی عبادت و بندگی را نفهمد، نمی‌تواند خواسته‌های دل خودش را جایگزین عبادت بداند.</p></div>
+      <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-crown"/></svg></span><h3>خدا بی‌نیاز و حکیم است</h3><p>خداوند کاملِ مطلق است و هیچ‌گونه نیازی به عبادت ما ندارد؛ او حکیمی است که هیچ نقصی در علمش راه ندارد و بر مصلحت بندگان از خود آنها آشناتر است؛ پس بهتر که بنده، بندگی کند و به خدایی او اعتماد نماید.</p></div>
+      <div class="mini-card frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg></span><h3>مراقب ترفند شیطان باشیم</h3><p>کمک به محرومان وظیفهٔ انسانی و دینی هر مسلمان است، اما این‌که بگوییم این کار جایگزین دستور خداوند در باب نماز خواندن می‌شود، اشتباه است. ترویج این فکر یعنی ترویج نافرمانی از خدا؛ شیطان گاهی با لباس خوبی‌ها وارد می‌شود و با برجسته نمودن یک خوبی، خوبی‌های ضروری دیگر را در نگاه انسان کوچک و بی‌ارزش نشان داده و از بین می‌برد.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۵ | اندیشه و تحقیق پایانی ══════════ -->
+<section class="slide" data-title="اندیشه و تحقیق پایانی (صفحهٔ ۲۱)" data-icon="i-book">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> اندیشه و تحقیق ـ انتهای جلسهٔ دوم (صفحهٔ ۲۱)</span>
+    <h2 class="title rise" style="--d:.08s">سه پرسش، <span class="grad-text">سه پاسخ کلیدی</span></h2>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">۱</span>آیا وجود شیطان، مانع اختیار و ارادهٔ ما در تصمیم‌گیری‌ها می‌شود؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> <b>خیر.</b> کار شیطان تنها وسوسه کردن، وعده‌های دروغین دادن و زیبا نشان دادن گناه است و هیچ سلطه‌ای بر انسان ندارد. او فقط انسان را به گناه <b>دعوت</b> می‌کند و این انسان است که با اراده و اختیار خود دعوت او را می‌پذیرد یا رد می‌کند؛ پس انسان خودش مسئول سرنوشتش است.</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">۲</span>چه رابطه‌ای میان «توانایی‌ها و سرمایه‌ها»ی ما و «هدف» وجود دارد؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> میان آنها رابطهٔ <b>مستقیم و تناسب</b> وجود دارد: هدف و مسیر حرکت هر کس با توانایی‌ها و سرمایه‌هایش هماهنگ است؛ اگر کسی سرمایه‌ای اندک داشته باشد به کاری کوچک روی می‌آورد، ولی هرچه سرمایه‌اش بیشتر شود هدف‌های بزرگ‌تری را می‌تواند مدّ نظر قرار دهد و به کارهای ارزشمندتری روی آورد. خداوند سرمایه‌های بزرگی مانند عقل، اختیار، فطرت، وجدان و راهنمایان الهی به انسان داده، زیرا هدف او هدفی بزرگ یعنی رشد، کمال و تقرّب به خداست.</div></div>
+      </div>
+    <div class="qa frag"><div class="qa-head"><span class="qtag">۳</span>خداوند شیطان را از درگاه خود راند و برای همیشه او را طرد کرد، به‌خاطر اینکه فرمان خدا را برای سجده بر انسان اطاعت نکرد. نظر شما دربارهٔ انسان‌هایی که حاضر نیستند در برابر خدا سجده کنند و بندگی شیطان را می‌پذیرند، چیست؟</div>
+      <div class="ans"><div class="ans-in"><span class="albl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> پاسخ گام‌به‌گام:</span> خدای متعال عوامل رشد و کمال و نیز عوامل سقوط و گناه و پاداش و جزای نیکوکاری و بدکاری را به ما نشان داده است؛ پس هدف مشخص و راه رسیدن به آن معلوم است. هرکس که بندگی شیطان را بپذیرد و لذت‌های زودگذر دنیا را بر سعادت آخرت ترجیح دهد، خودش <b>با میل و اختیار</b> راه غلط را برگزیده، به خود ظلم کرده و مسئول عواقب اعمالش است و در آخرت هیچ بهانه‌ای برای توجیه کارهایش نخواهد داشت. جای تأسف است که انسان با آن همه کرامت و سرمایه، راهی را برگزیند که حتی شیطان به‌خاطر نافرمانی از همان فرمان سجده، برای همیشه طرد شد.</div></div>
+      </div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۶ | جمع‌بندی ══════════ -->
+<section class="slide" data-title="جمع‌بندی و نقشهٔ مفهومی" data-icon="i-grid">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg> جمع‌بندی درس دوم</span>
+    <h2 class="title rise" style="--d:.08s">نقشهٔ مفهومی <span class="grad-text">«قدرت پرواز»</span></h2>
+    <div class="flow">
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span><b>هدف زندگی</b><br>تقرّب به خدا<br>(رشد و کمال انسان)</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-foot"/></svg></span><b>اولین گام</b><br>خودشناسی؛<br>سودمندترین دانش‌ها</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg></span><b>بال‌های پرواز</b><br>عقل، اختیار، فطرت خدا‌آشنا، گرایش به نیکی، وجدان، راهنمایان الهی</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg></span><b>موانع راه</b><br>نفس امّاره (درونی)<br>شیطان (بیرونی ـ فقط وسوسه)</div>
+      <div class="sep frag"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></div>
+      <div class="step frag"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg></span><b>نتیجه</b><br>با اختیار خود و به‌کارگیری سرمایه‌ها، به سوی هدف پرواز می‌کنیم</div>
+    </div>
+    <div class="grid g2">
+      <div class="card frag"><h3><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> نکته‌های طلایی امتحانی</h3>
+        <ul class="ticks">
+          <li>سودمندترین دانش‌ها: <b>خودشناسی</b></li>
+          <li>نام دیگر نفس لوّامه: <b>وجدان</b> ـ سورهٔ قیامت، آیهٔ ۲</li>
+          <li>سرشت خدا‌آشنا: <b>روم ۳۰</b> | گرایش به نیکی: <b>شمس ۷ و ۸</b></li>
+          <li>عقل و تفکر: <b>آل‌عمران ۱۹۰ و ۱۹۱</b> | اختیار: <b>انسان ۳</b></li>
+          <li>راهنمایان الهی ← اصل <b>نبوّت</b></li>
+        </ul></div>
+      <div class="card frag"><h3><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> آیات کلیدی موانع</h3>
+        <ul class="ticks cross">
+          <li>نفس امّاره: <b>یوسف ۵۳</b> «إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ»</li>
+          <li>گام‌های شیطان: <b>بقره ۱۶۸ و ۱۶۹</b></li>
+          <li>سوگند شیطان برای فریب: <b>ص ۸۲</b></li>
+          <li>بی‌سلطگی شیطان در قیامت: <b>ابراهیم ۲۲</b></li>
+          <li>تقلید کورکورانه: <b>بقره ۱۷۰ و ۱۷۱</b> «فَهُمْ لَا يَعْقِلُونَ»</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۷ | معرفی کتاب ══════════ -->
+<section class="slide" data-title="معرفی کتاب و منابع پاسخ‌ها" data-icon="i-book">
+  <div class="slide-inner top">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> معرفی کتاب ـ صفحهٔ ۲۱ کتاب درسی</span>
+    <h2 class="title rise" style="--d:.08s">برای مطالعهٔ <span class="grad-text">بیشتر</span></h2>
+    <div class="frag" style="overflow-x:auto">
+    <table class="books">
+      <tr><th>نام کتاب</th><th>نویسنده</th><th>انتشارات</th><th>مخاطب</th></tr>
+      <tr><td>جوان در کلام نور</td><td>مرتضی روحانی</td><td>مؤسسهٔ امام خمینی (ره)</td><td>دانش‌آموز</td></tr>
+      <tr><td>مقدمه‌ای بر جهان‌بینی اسلامی (انسان در قرآن)</td><td>شهید مرتضی مطهری</td><td>صدرا</td><td>معلم</td></tr>
+      <tr><td>به سوی او</td><td>محمدتقی مصباح یزدی</td><td>مؤسسهٔ امام خمینی (ره)</td><td>دانش‌آموز / معلم</td></tr>
+      <tr><td>به سوی خودسازی</td><td>محمدتقی مصباح یزدی</td><td>مؤسسهٔ امام خمینی (ره)</td><td>دانش‌آموز / معلم</td></tr>
+      <tr><td>جوان در چشم و دل پیامبر</td><td>محمدباقر پورامینی</td><td>کانون اندیشهٔ جوان</td><td>دانش‌آموز</td></tr>
+      <tr><td>انسان‌شناسی قرآنی</td><td>شهید مرتضی مطهری</td><td>صدرا</td><td>معلم</td></tr>
+      <tr><td>معارف کاربردی (۲): انسان‌شناسی ـ جهان‌شناسی</td><td>محمدحسن Baghcheban</td><td>مؤسسهٔ جوانان آستان قدس رضوی</td><td>دانش‌آموز / معلم</td></tr>
+    </table></div>
+    <div class="card frag">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> منابع پاسخ‌های گام‌به‌گام این ارائه</h3>
+      <p>پاسخ همهٔ جای‌خالی‌ها و پرسش‌های «اندیشه و تحقیق» از گام‌به‌گام‌های آموزشی درس دوم دین و زندگی دهم (قدرت پرواز) گرفته و با متن صفحات ۱۲ تا ۲۱ کتاب درسی تطبیق داده شده است:</p>
+      <p style="margin-top:6px">• <a href="https://hamyar.me/javab-10dini-d2/" target="_blank" rel="noopener">جواب فعالیت‌های درس ۲ دینی دهم ـ همیار آموزش</a><br>
+      • <a href="https://hamyar.me/javab-10e-dini-d2/" target="_blank" rel="noopener">جواب درس ۲ دینی دهم انسانی؛ صفحات ۱۴ تا ۲۱ ـ همیار</a><br>
+      • <a href="https://www.daneshchi.ir/%D9%BE%D8%A7%D8%B3%D8%AE-%D8%B3%D9%88%D8%A7%D9%84%D8%A7%D8%AA-%D8%AF%D8%B1%D8%B3-%D8%AF%D9%88%D9%85-%D8%AF%DB%8C%D9%86-%D9%88-%D8%B2%D9%86%D8%AF%DA%AF%DB%8C-%D8%AF%D9%87%D9%85/" target="_blank" rel="noopener">پاسخ سوالات درس دوم دین و زندگی دهم ـ دانشچی</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۲۸ | آزمون ══════════ -->
+<section class="slide" data-title="آزمون پرواز (خودآزمایی)" data-icon="i-award">
+  <div class="slide-inner">
+    <span class="kicker rise"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg> خودت را بیازما!</span>
+    <h2 class="title rise" style="--d:.08s">آزمونِ <span class="grad-text">پرواز</span> <svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg></h2>
+    <div class="quiz-box rise" style="--d:.18s">
+      <div class="quiz-meta"><span id="quizStep">پرسش ۱ از ۸</span><span class="score"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><span id="quizScoreNum">امتیاز: ۰</span></span></div>
+      <div class="quiz-bar"><i id="quizFill"></i></div>
+      <div id="quizQ"></div>
+      <div id="quizOpts"></div>
+      <div id="quizFeed"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+        <button class="btn" id="quizNext" style="display:none" onclick="quizNextQ()">پرسش بعدی <svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></button>
+        <button class="btn ghost" id="quizRestart" style="display:none" onclick="quizStart()"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg> شروع دوبارهٔ آزمون</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ۳۰ | پایان ══════════ -->
+<section class="slide" data-title="پایان | پروازی موفق!" data-icon="i-spark">
+  <div class="slide-inner" style="text-align:center; align-items:center">
+    <div class="rise" style="font-size:clamp(3.4rem,9vw,5.6rem); animation:bob 2.2s ease-in-out infinite"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg></div>
+    <h1 class="title rise" style="--d:.12s">پروازی <span class="grad-text">موفق</span> داشته باشید!</h1>
+    <p class="lead rise" style="--d:.24s; max-width:720px">سرمایه‌های پرواز در درون شماست: <b>عقل، اختیار، فطرت، وجدان</b> و <b>راهنمایان الهی</b>.<br>گنج نزدیک است؛ آن را دور نیندازید! <svg class="ic" aria-hidden="true"><use href="#i-gem"/></svg></p>
+    <div class="poem rise" style="--d:.36s">ای کمان و تیرها برساخته &nbsp;•&nbsp; گنج نزدیک و تو دور انداخته<small>به امید دیدار در درس سوم <svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></small></div>
+    <div class="rise" style="--d:.48s; display:flex; gap:12px; flex-wrap:wrap; justify-content:center">
+      <button class="btn" onclick="goTo(30,true)"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg> دوباره آزمون بده</button>
+      <button class="btn ghost" onclick="goTo(0,true)"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg> بازگشت به آغاز</button>
+      <button class="btn ghost" onclick="window.print()"><svg class="ic" aria-hidden="true"><use href="#i-printer"/></svg> چاپ همهٔ اسلایدها</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- نشانهٔ قطعات باقی‌مانده -->
+<div id="fragHint"><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg><span id="fragHintTxt">برای ادامه «بعدی» را بزنید</span></div>
+
+<!-- نقطه‌های کنار صفحه -->
+<nav id="dots" aria-label="ناوبری سریع اسلایدها"></nav>
+
+<!-- نوار کنترل -->
+<div id="controls" role="navigation" aria-label="کنترل ارائه">
+  <button class="icon-btn" onclick="toggleMenu(true)" title="فهرست اسلایدها (M)" aria-label="فهرست"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></button>
+  <button class="icon-btn hide-sm" onclick="goTo(0,true)" title="اسلاید اول" aria-label="اول"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg></button>
+  <button class="nav-btn" id="prevBtn" onclick="prev()"><svg class="ic" aria-hidden="true"><use href="#i-arrowR"/></svg><span class="hide-sm">قبلی</span></button>
+  <span id="counter">۱ از ۱</span>
+  <button class="nav-btn" id="nextBtn" onclick="next()"><span class="hide-sm">بعدی</span><svg class="ic" aria-hidden="true"><use href="#i-arrowL"/></svg></button>
+  <button class="icon-btn" id="allAnsBtn" onclick="toggleAllAns()" title="نمایش/پنهان کردن همهٔ پاسخ‌ها" aria-label="همهٔ پاسخ‌ها"><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg></button>
+  <button class="icon-btn hide-sm" onclick="toggleFS()" title="تمام‌صفحه (F)" aria-label="تمام‌صفحه"><svg class="ic" aria-hidden="true"><use href="#i-expand"/></svg></button>
+</div>
+
+<!-- منوی فهرست -->
+<div class="overlay" id="menuOverlay" onclick="if(event.target===this)toggleMenu(false)">
+  <div class="menu-panel">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
+      <h3 style="font-size:1.5rem; font-weight:900"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg> فهرست اسلایدهای «قدرت پرواز»</h3>
+      <button class="btn ghost" style="padding:9px 20px" onclick="toggleMenu(false)"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg> بستن</button>
+    </div>
+    <p class="foot-note" style="margin-top:6px">روی عنوان هر اسلاید کلیک کنید تا مستقیم به همان اسلاید بروید. میانبرها: <span class="kbd">←</span> بعدی، <span class="kbd">→</span> قبلی، <span class="kbd">F</span> تمام‌صفحه، <span class="kbd">Esc</span> بستن.</p>
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</div>
+
+<script>
+/* =====================================================
+   موتور ارائهٔ «قدرت پرواز» — بدون اسکرول (کوچک‌سازی خودکار)
+===================================================== */
+const FA = n => Number(n).toLocaleString('fa-IR',{useGrouping:false});
+const slides = [...document.querySelectorAll('.slide')];
+let cur = 0, allAnsOpen = false;
+const counter = document.getElementById('counter'),
+      bar = document.getElementById('progressBar'),
+      prevBtn = document.getElementById('prevBtn'),
+      nextBtn = document.getElementById('nextBtn'),
+      hint = document.getElementById('fragHint'),
+      hintTxt = document.getElementById('fragHintTxt');
+const ICON = id => `<svg class="ic" aria-hidden="true"><use href="#${id}"/></svg>`;
+
+/* ---------- جا شدن خودکار در صفحه (بدون نیاز به اسکرول) ---------- */
+function fit(){
+  const s = slides[cur]; if(!s) return;
+  const inner = s.querySelector('.slide-inner'); if(!inner) return;
+  inner.style.transform = '';
+  const cs = getComputedStyle(s);
+  const availH = s.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+  const availW = s.clientWidth  - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  const h = inner.scrollHeight, w = inner.scrollWidth;
+  if(!h || !w) return;
+  const k = Math.min(1, availH/h, availW/w);
+  if(k < 1) inner.style.transform = `scale(${k})`;
+}
+let fitTimers = [];
+function fitSoon(){
+  requestAnimationFrame(fit);
+  fitTimers.forEach(clearTimeout);
+  fitTimers = [setTimeout(fit,120), setTimeout(fit,520)];
+}
+window.addEventListener('resize', ()=>requestAnimationFrame(fit));
+window.addEventListener('load', fitSoon);
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitSoon);
+
+/* ---------- قطعات (Fragments) ---------- */
+function fragsOf(i){ return [...slides[i].querySelectorAll('.frag')]; }
+function fragState(){
+  const f = fragsOf(cur), on = f.filter(x=>x.classList.contains('on')).length;
+  return {total:f.length, on, left:f.length-on};
+}
+function updateHint(){
+  const {left} = fragState();
+  if(left>0){ hintTxt.textContent = `برای ادامه «بعدی» را بزنید (${FA(left)} مورد دیگر در این اسلاید)`; hint.classList.add('show'); }
+  else hint.classList.remove('show');
+}
+
+/* ---------- نمایش اسلاید ---------- */
+function show(i, {dir='fwd', revealAll=false}={}){
+  slides[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(slides.length-1, i));
+  document.body.dataset.dir = dir;
+  fragsOf(cur).forEach(f=>f.classList.toggle('on', revealAll));
+  slides[cur].classList.add('active');
+  counter.textContent = `${FA(cur+1)} از ${FA(slides.length)}`;
+  bar.style.width = ((cur+1)/slides.length*100)+'%';
+  prevBtn.disabled = (cur===0 && fragState().on===0);
+  nextBtn.disabled = (cur===slides.length-1 && fragState().left===0);
+  document.querySelectorAll('#dots button').forEach((d,k)=>d.classList.toggle('on', k===cur));
+  document.querySelectorAll('.menu-item').forEach((m,k)=>m.classList.toggle('on', k===cur));
+  updateHint(); fitSoon();
+  if(cur===slides.length-1) celebrate();
+}
+function next(){
+  const nxt = fragsOf(cur).find(x=>!x.classList.contains('on'));
+  if(nxt){ nxt.classList.add('on'); prevBtn.disabled=false;
+    if(cur===slides.length-1 && fragState().left===0) nextBtn.disabled=true;
+    updateHint(); fitSoon(); return; }
+  if(cur < slides.length-1) show(cur+1, {dir:'fwd', revealAll:false});
+}
+function prev(){
+  const onFrags = fragsOf(cur).filter(x=>x.classList.contains('on'));
+  if(onFrags.length){ onFrags[onFrags.length-1].classList.remove('on'); nextBtn.disabled=false;
+    if(cur===0 && fragState().on===0) prevBtn.disabled=true;
+    updateHint(); fitSoon(); return; }
+  if(cur > 0) show(cur-1, {dir:'back', revealAll:true});
+}
+function goTo(i, revealAll=true){ toggleMenu(false); show(i, {dir: i>=cur?'fwd':'back', revealAll}); }
+
+/* ---------- میانبرهای صفحه‌کلید و لمسی ---------- */
+document.addEventListener('keydown', e=>{
+  if((e.key==='Enter'||e.key===' ') && e.target instanceof Element && e.target.closest('button')) return;
+  if(document.getElementById('menuOverlay').classList.contains('open')){
+    if(e.key==='Escape') toggleMenu(false); return;
+  }
+  switch(e.key){
+    case 'ArrowLeft': case ' ': case 'Enter': case 'PageDown': e.preventDefault(); next(); break;
+    case 'ArrowRight': case 'PageUp': case 'Backspace': e.preventDefault(); prev(); break;
+    case 'Home': goTo(0); break; case 'End': goTo(slides.length-1); break;
+    case 'f': case 'F': toggleFS(); break;
+    case 'm': case 'M': toggleMenu(true); break;
+    case 'Escape': toggleMenu(false); break;
+  }
+});
+let tx=null, ty=null;
+document.addEventListener('touchstart', e=>{ tx=e.changedTouches[0].clientX; ty=e.changedTouches[0].clientY; }, {passive:true});
+document.addEventListener('touchend', e=>{
+  if(tx===null) return;
+  const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>65 && Math.abs(dx)>Math.abs(dy)*1.4){ dx<0 ? next() : prev(); }
+  tx=ty=null;
+}, {passive:true});
+document.addEventListener('click', e=>{ const b=e.target.closest('button'); if(b) b.blur(); });
+function toggleFS(){
+  if(document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen?.();
+  setTimeout(fitSoon, 350);
+}
+
+/* ---------- پرسش و پاسخ آکاردئونی (کلیک روی عنوان پرسش) ---------- */
+document.querySelectorAll('.qa').forEach(qa=>{
+  const head = qa.querySelector('.qa-head'); if(!head) return;
+  if(!head.querySelector('.chev')){
+    const c = document.createElement('span'); c.className='chev'; c.innerHTML = ICON('i-chevD'); head.appendChild(c);
+  }
+  head.setAttribute('role','button'); head.setAttribute('tabindex','0');
+  head.setAttribute('aria-expanded','false'); head.title = 'برای دیدن پاسخ گام‌به‌گام کلیک کنید';
+  const toggle = ()=>{
+    const willOpen = !qa.classList.contains('open');
+    /* در هر اسلاید فقط یک پاسخ باز باشد تا اسلاید در صفحه جا شود */
+    qa.closest('.slide').querySelectorAll('.qa.open').forEach(o=>{
+      o.classList.remove('open'); o.querySelector('.qa-head').setAttribute('aria-expanded','false');
+    });
+    if(willOpen){ qa.classList.add('open'); head.setAttribute('aria-expanded','true'); }
+    fitSoon();
+  };
+  head.addEventListener('click', toggle);
+  head.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); toggle(); } });
+});
+function toggleAllAns(){
+  allAnsOpen = !allAnsOpen;
+  document.querySelectorAll('.qa').forEach(qa=>{
+    qa.classList.toggle('open', allAnsOpen);
+    qa.querySelector('.qa-head')?.setAttribute('aria-expanded', String(allAnsOpen));
+  });
+  document.getElementById('allAnsBtn').innerHTML = ICON(allAnsOpen ? 'i-eye-off' : 'i-eye');
+  fitSoon();
+}
+
+/* ---------- فهرست اسلایدها و نقطه‌های کناری ---------- */
+const menuGrid = document.getElementById('menuGrid'), dots = document.getElementById('dots');
+slides.forEach((s,i)=>{
+  const b=document.createElement('button'); b.className='menu-item';
+  b.innerHTML = `<span class="mico">${ICON(s.dataset.icon||'i-note')}</span>
+    <span>${s.dataset.title||('اسلاید '+(i+1))}<small>اسلاید ${FA(i+1)} از ${FA(slides.length)}</small></span>`;
+  b.onclick=()=>goTo(i); menuGrid.appendChild(b);
+  const d=document.createElement('button'); d.title=s.dataset.title||''; d.setAttribute('aria-label', s.dataset.title||'');
+  d.onclick=()=>goTo(i); dots.appendChild(d);
+});
+function toggleMenu(open){ document.getElementById('menuOverlay').classList.toggle('open', open); }
+
+/* ---------- آزمون پرواز ---------- */
+const QUIZ = [
+ {q:'«سودمندترین دانش‌ها» در سخن گهربار نقل‌شده در درس، کدام دانش معرفی شده است؟',
+  o:['ریاضیات و علوم تجربی','خودشناسی','تاریخ گذشتگان','شناخت طبیعت'], a:1,
+  why:'خودشناسی؛ چون شناخت سرمایه‌ها و موانع، اولین گام حرکت به سوی خداست.'},
+ {q:'نیرویی که با آن مسیر درست زندگی را از راه‌های غلط تشخیص می‌دهیم و آیات ۱۹۰ و ۱۹۱ آل‌عمران به آن اشاره دارد، چیست؟',
+  o:['وجدان','اختیار','عقل و قدرت تفکر','نفس امّاره'], a:2,
+  why:'عقل؛ آیه از «أُولِي الْأَلْبَاب» (خردمندان) و تفکر آنان در آفرینش سخن می‌گوید.'},
+ {q:'آیهٔ «إِنَّا هَدَيْنَاهُ السَّبِيلَ إِمَّا شَاكِرًا وَإِمَّا كَفُورًا» (انسان، ۳) به کدام سرمایه اشاره می‌کند؟',
+  o:['سرشت خدا‌آشنا','اختیار و ارادهٔ انسان','راهنمایان الهی','وجدان'], a:1,
+  why:'اختیار؛ خدا راه را نشان می‌دهد و انسان با اختیار خود سپاسگزار یا ناسپاس می‌شود.'},
+ {q:'نام دیگر «نفس لوّامه» که خداوند در سورهٔ قیامت به آن سوگند خورده است، چیست؟',
+  o:['نفس امّاره','فطرت','وجدان','شیطان'], a:2,
+  why:'وجدان؛ عامل درونی‌ای که پس از گناه، انسان را سرزنش و به جبران وامی‌دارد.'},
+ {q:'کدام آیه، سرشت خدا‌آشنای انسان (فطرت) را معرفی می‌کند؟',
+  o:['روم، آیهٔ ۳۰','بقره، آیهٔ ۱۶۸','یوسف، آیهٔ ۵۳','قیامت، آیهٔ ۲'], a:0,
+  why:'روم ۳۰: «فِطْرَتَ اللَّهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا»؛ آفرینشی تغییرناپذیر.'},
+ {q:'فرستادن «راهنمایان الهی همراه با کتاب راهنما» به کدام اصل دین اشاره دارد؟',
+  o:['معاد','عدل','توحید','نبوّت'], a:3,
+  why:'نبوّت؛ خدا علاوه بر سرمایه‌های درونی، پیامبران و کتاب راهنما را هم فرستاده است.'},
+ {q:'دربارهٔ شیطان کدام گزینه درست است؟',
+  o:['انسان را به گناه مجبور می‌کند','فقط وسوسه و دعوت می‌کند و سلطه‌ای بر انسان ندارد','در قیامت به پیروانش کمک می‌کند','از ابتدا «شیطان و پلید» آفریده شده است'], a:1,
+  why:'طبق ابراهیم ۲۲، خود شیطان می‌گوید: «من بر شما تسلطی نداشتم؛ فقط دعوت کردم».'},
+ {q:'پیام اصلی داستان «در جست‌وجوی گنج» (بیشتر بدانیم) چیست؟',
+  o:['گنج همیشه در سرزمین‌های دور است','با تیراندازی می‌توان گنج یافت','سرمایه‌های بزرگ الهی در درون خود انسان و نزدیک اوست','تلاش برای یافتن گنج بی‌فایده است'], a:2,
+  why:'«گنج نزدیک و تو دور انداخته»؛ سرمایه‌های الهی در وجود خود ماست.'},
+];
+let qi=0, qScore=0, qAnswered=false;
+function quizStart(){ qi=0; qScore=0; document.getElementById('quizRestart').style.display='none'; quizRender(); }
+function quizRender(){
+  qAnswered=false;
+  const it=QUIZ[qi];
+  document.getElementById('quizStep').textContent=`پرسش ${FA(qi+1)} از ${FA(QUIZ.length)}`;
+  document.getElementById('quizScoreNum').textContent=`امتیاز: ${FA(qScore)}`;
+  document.getElementById('quizFill').style.width=(qi/QUIZ.length*100)+'%';
+  document.getElementById('quizQ').textContent=it.q;
+  document.getElementById('quizFeed').textContent='';
+  document.getElementById('quizNext').style.display='none';
+  const box=document.getElementById('quizOpts'); box.innerHTML='';
+  it.o.forEach((txt,k)=>{
+    const b=document.createElement('button'); b.className='opt';
+    b.textContent=`${['الف','ب','ج','د'][k]}) ${txt}`;
+    b.onclick=()=>quizPick(b,k); box.appendChild(b);
+  });
+  fitSoon();
+}
+function quizPick(btn,k){
+  if(qAnswered) return; qAnswered=true;
+  const it=QUIZ[qi], opts=[...document.querySelectorAll('.opt')];
+  opts.forEach(o=>o.disabled=true); opts[it.a].classList.add('correct');
+  const feed=document.getElementById('quizFeed');
+  if(k===it.a){ qScore++; feed.innerHTML=`آفرین، درست گفتی! <span style="font-weight:500">${it.why}</span>`; miniConfetti(12); }
+  else{ btn.classList.add('wrong'); feed.innerHTML=`این‌بار نشد! <span style="font-weight:500">${it.why}</span>`; }
+  document.getElementById('quizScoreNum').textContent=`امتیاز: ${FA(qScore)}`;
+  document.getElementById('quizFill').style.width=((qi+1)/QUIZ.length*100)+'%';
+  const nx=document.getElementById('quizNext');
+  nx.style.display='inline-flex';
+  nx.innerHTML = (qi<QUIZ.length-1 ? 'پرسش بعدی ' : 'مشاهدهٔ نتیجهٔ نهایی ') + ICON('i-arrowL');
+  fitSoon();
+}
+function quizNextQ(){
+  if(qi<QUIZ.length-1){ qi++; quizRender(); return; }
+  document.getElementById('quizFill').style.width='100%';
+  const nStar = qScore===8?3:qScore>=6?2:qScore>=4?1:0;
+  const stars = Array.from({length:Math.max(nStar,1)},()=>ICON('i-star')).join('');
+  const msg = qScore===8?'فوق‌العاده! پروازت بی‌نقص بود.':qScore>=6?'آفرین! بال‌هایت محکم است، کمی دیگر تمرین کن.':qScore>=4?'خوب است؛ اسلایدهای سرمایه‌ها را یک بار دیگر مرور کن.':'اشکالی ندارد! ارائه را دوباره ببین و باز آزمون بده.';
+  document.getElementById('quizQ').innerHTML=`<div class="score-final"><div class="stars">${stars}</div><div class="big grad-text">${FA(qScore)} از ${FA(QUIZ.length)}</div><p>${msg}</p></div>`;
+  document.getElementById('quizOpts').innerHTML=''; document.getElementById('quizFeed').textContent='';
+  document.getElementById('quizNext').style.display='none';
+  document.getElementById('quizRestart').style.display='inline-flex';
+  celebrate(); fitSoon();
+}
+quizStart();
+
+/* ---------- ذرات جشن و پرهای شناور ---------- */
+function miniConfetti(n){
+  const colors=['#2563eb','#06b6d4','#14b8a6','#38bdf8','#2dd4bf','#93c5fd'];
+  for(let i=0;i<n;i++){
+    const s=document.createElement('span'); s.className='confetti';
+    const sz = 6+Math.random()*7;
+    s.style.width=sz+'px'; s.style.height=(sz*.55)+'px';
+    s.style.background=colors[i%colors.length];
+    s.style.insetInlineStart=(Math.random()*100)+'vw';
+    s.style.animationDuration=(2.2+Math.random()*2)+'s';
+    s.style.animationDelay=(Math.random()*.5)+'s';
+    if(Math.random()>.5) s.style.borderRadius='50%';
+    document.body.appendChild(s); setTimeout(()=>s.remove(),5200);
+  }
+}
+function celebrate(){ miniConfetti(26); }
+(function(){
+  const box=document.getElementById('feathers');
+  box.style.cssText='position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden';
+  for(let i=0;i<7;i++){
+    const s=document.createElement('span'); s.className='feather'; s.innerHTML=ICON('i-feather');
+    const sz = 15+Math.random()*16;
+    s.style.width=sz+'px'; s.style.height=sz+'px';
+    s.style.top='-6vh'; s.style.insetInlineStart=(8+Math.random()*88)+'vw';
+    s.style.animationDuration=(17+Math.random()*20)+'s';
+    s.style.animationDelay=(-Math.random()*24)+'s';
+    box.appendChild(s);
+  }
+})();
+
+/* ---------- شروع ---------- */
+show(0,{revealAll:true});
+
+</script>
+</body>
+</html>
